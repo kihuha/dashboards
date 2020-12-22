@@ -11,6 +11,7 @@ import Flame from "../img/flame.svg"
 import Piechart from "../img/piechart.svg"
 import Settings from "../img/settings.svg"
 import { BsPlus } from "react-icons/bs"
+import SearchIcon from "../img/search.svg"
 
 // AVATARS
 import AvatarOne from "../img/avatar-one.jpg"
@@ -72,7 +73,7 @@ const Navbar = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 2.5rem 0;
+  padding: 2rem 0;
 `
 
 const SearchInput = styled.input`
@@ -81,6 +82,14 @@ const SearchInput = styled.input`
   padding: 1rem;
   font-family: inherit;
   font-size: 1.4rem;
+  background: transparent;
+  border-bottom: solid 2px transparent;
+  cursor: pointer;
+
+  &:active,
+  &:focus {
+    border-bottom: solid 2px black;
+  }
 `
 
 const AvatarGrid = styled.div`
@@ -160,12 +169,15 @@ const Layout = (props: { children: JSX.Element | JSX.Element[] }) => (
     <Content>
       <Navbar>
         <form>
-          <SearchInput
-            type="search"
-            name="search"
-            id="searchID"
-            placeholder="Search"
-          />
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <img src={SearchIcon} alt="search icon" />
+            <SearchInput
+              type="search"
+              name="search"
+              id="searchID"
+              placeholder="Search"
+            />
+          </div>
         </form>
         <AvatarGrid>
           <Avatar style={{ background: `url(${AvatarOne})` }}>
