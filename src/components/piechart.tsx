@@ -1,5 +1,3 @@
-import { useState } from "react"
-
 const PieChart = (props: { percent: number; color: string }) => {
   let radius = 52
   const circumference = radius * 2 * Math.PI

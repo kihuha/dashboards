@@ -4,6 +4,7 @@ import { normalize } from "styled-normalize"
 
 // DASHBOARDS
 import One from "./dashboards/one"
+import Two from "./dashboards/two"
 
 // STYLES
 const GlobalStyle = createGlobalStyle`
@@ -30,7 +31,8 @@ const App = () => {
     <>
       <GlobalStyle />
       <Router>
-        <One path="/" />
+        <One path="/one" />
+        <Two path="/two" />
       </Router>
     </>
   )
