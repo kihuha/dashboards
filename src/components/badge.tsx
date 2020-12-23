@@ -12,7 +12,7 @@ const Badge = styled.div`
 `
 
 const BadgeWrapper = (props: { color: string; label: string }) => (
-  <Badge color={props.color}>{props.label}</Badge>
+  <Badge {...props}>{props.label}</Badge>
 )
 
 export default BadgeWrapper
