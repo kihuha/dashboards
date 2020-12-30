@@ -35,6 +35,12 @@ const ProgressLabel = styled.div`
   font-size: 1.4rem;
 `
 
+const ProgressBase = (props: { color: string; width: number }) => (
+  <Progress color={props.color}>
+    <ProgressIcon width={props.width} />
+  </Progress>
+)
+
 const ProgressWrapper = (props: {
   label: string
   count: string
@@ -46,10 +52,8 @@ const ProgressWrapper = (props: {
       <p>{props.label}</p>
       <p>{props.count}</p>
     </ProgressLabel>
-    <Progress color={props.color}>
-      <ProgressIcon width={props.width} />
-    </Progress>
+    <ProgressBase color={props.color} width={props.width} />
   </Wrapper>
 )
 
-export default ProgressWrapper
+export { ProgressWrapper as default, ProgressBase }
