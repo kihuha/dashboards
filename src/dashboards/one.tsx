@@ -277,7 +277,11 @@ const OneWrapper = (props: RouteComponentProps) => {
           </PieChartGrid>
         </Left>
         <Right>
-          <BarChart data={[300, 30, 50]} />
+          <BarChart
+            data={[300, 30, 50]}
+            label="Aussie chef shares culinary"
+            color="#FFB200"
+          />
         </Right>
       </BottomGrid>
     </Layout>
