@@ -206,10 +206,6 @@ const FourWrapper = (props: RouteComponentProps) => {
     },
   ]
 
-  data.map((item: any) => {
-    console.log(item.values)
-  })
-
   return (
     <Layout>
       <Content>
@@ -270,7 +266,7 @@ const FourWrapper = (props: RouteComponentProps) => {
                 background: `rgba(${hexToRgbA("#34B53A")}, 0.2)`,
               }}
             >
-              <img src={One} />
+              <img src={One} alt="" />
             </CardIcon>
             <div>
               <CardTitle>Chris Newton</CardTitle>
@@ -284,7 +280,7 @@ const FourWrapper = (props: RouteComponentProps) => {
                 background: `rgba(${hexToRgbA("#FF3A29")}, 0.2)`,
               }}
             >
-              <img src={Two} />
+              <img src={Two} alt="" />
             </CardIcon>
             <div>
               <CardTitle>Blanche Malone</CardTitle>
@@ -298,7 +294,7 @@ const FourWrapper = (props: RouteComponentProps) => {
                 background: `rgba(${hexToRgbA("#02A0FC")}, 0.2)`,
               }}
             >
-              <img src={Three} />
+              <img src={Three} alt="" />
             </CardIcon>
             <div>
               <CardTitle>Eunice Wilkins</CardTitle>
@@ -312,7 +308,7 @@ const FourWrapper = (props: RouteComponentProps) => {
                 background: `rgba(${hexToRgbA("#4339F2")}, 0.2)`,
               }}
             >
-              <img src={Four} />
+              <img src={Four} alt="" />
             </CardIcon>
             <div>
               <CardTitle>Phillip George</CardTitle>
@@ -326,7 +322,7 @@ const FourWrapper = (props: RouteComponentProps) => {
                 background: `rgba(${hexToRgbA("#FFB200")}, 0.2)`,
               }}
             >
-              <img src={Five} />
+              <img src={Five} alt="" />
             </CardIcon>
             <div>
               <CardTitle>Birdie Potter</CardTitle>
