@@ -8,6 +8,8 @@ import Two from "./dashboards/two"
 import Three from "./dashboards/three"
 import Four from "./dashboards/four"
 import Five from "./dashboards/five"
+import Six from "./dashboards/six"
+import Seven from "./dashboards/seven"
 
 // STYLES
 const GlobalStyle = createGlobalStyle`
@@ -39,6 +41,8 @@ const App = () => {
         <Three path="/three" />
         <Four path="/four" />
         <Five path="/five" />
+        <Six path="/six" />
+        <Seven path="/seven" />
       </Router>
     </>
   )
