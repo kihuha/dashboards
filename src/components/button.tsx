@@ -3,8 +3,8 @@ import { applyStyleModifiers } from "styled-components-modifiers"
 
 const MODIFIER_CONFIG = {
   primary: () => `
-        background: white;
-        color: #4339f2;
+        color: white;
+        background: #4339f2;
     `,
 }
 
@@ -13,6 +13,7 @@ const ButtonWrapper = styled.button<any>`
   border: none;
   outline: none;
   background: white;
+  color: "#4339f2";
   font-family: inherit;
   font-size: 1.4rem;
   border-radius: 0.5rem;

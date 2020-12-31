@@ -254,7 +254,7 @@ const OneWrapper = (props: RouteComponentProps) => {
               </div>
             </AdLeft>
             <AdRight>
-              <Button modifiers="primary">See More</Button>
+              <Button>See More</Button>
             </AdRight>
           </Ad>
           <PieChartGrid>
