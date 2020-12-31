@@ -11,6 +11,7 @@ import Five from "./dashboards/five"
 import Six from "./dashboards/six"
 import Seven from "./dashboards/seven"
 import Eight from "./dashboards/eight"
+import Twelve from "./dashboards/twelve"
 
 // STYLES
 const GlobalStyle = createGlobalStyle`
@@ -45,6 +46,7 @@ const App = () => {
         <Six path="/six" />
         <Seven path="/seven" />
         <Eight path="/eight" />
+        <Twelve path="/twelve" />
       </Router>
     </>
   )
