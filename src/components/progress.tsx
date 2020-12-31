@@ -36,7 +36,7 @@ const ProgressLabel = styled.div`
 `
 
 const ProgressBase = (props: { color: string; width: number }) => (
-  <Progress color={props.color}>
+  <Progress {...props}>
     <ProgressIcon width={props.width} />
   </Progress>
 )
