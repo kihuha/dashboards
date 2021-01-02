@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components"
 import { normalize } from "styled-normalize"
 
 // DASHBOARDS
+import Landing from "./dashboards/landing"
 import One from "./dashboards/one"
 import Two from "./dashboards/two"
 import Three from "./dashboards/three"
@@ -11,7 +12,13 @@ import Five from "./dashboards/five"
 import Six from "./dashboards/six"
 import Seven from "./dashboards/seven"
 import Eight from "./dashboards/eight"
+import Nine from "./dashboards/nine"
+import Ten from "./dashboards/ten"
+import Eleven from "./dashboards/eleven"
 import Twelve from "./dashboards/twelve"
+import Thirteen from "./dashboards/thirteen"
+import Fourteen from "./dashboards/fourteen"
+import Fifteen from "./dashboards/fifteen"
 
 // STYLES
 const GlobalStyle = createGlobalStyle`
@@ -38,6 +45,7 @@ const App = () => {
     <>
       <GlobalStyle />
       <Router>
+        <Landing path="/" />
         <One path="/one" />
         <Two path="/two" />
         <Three path="/three" />
@@ -46,7 +54,13 @@ const App = () => {
         <Six path="/six" />
         <Seven path="/seven" />
         <Eight path="/eight" />
+        <Nine path="/nine" />
+        <Ten path="/ten" />
+        <Eleven path="/eleven" />
         <Twelve path="/twelve" />
+        <Thirteen path="/thirteen" />
+        <Fourteen path="/fourteen" />
+        <Fifteen path="/fifteen" />
       </Router>
     </>
   )
