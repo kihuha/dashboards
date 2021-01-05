@@ -8,6 +8,7 @@ import Button from "../components/button"
 import Progress from "../components/progress"
 import { PieChartTwo } from "../components/piechart"
 import Hero from "../img/seven-hero.svg"
+import SevenGraph from "../img/seven-graph.svg"
 
 const Top = styled.div`
   display: flex;
@@ -147,13 +148,40 @@ const Seven = (props: RouteComponentProps) => {
               <LegendItem style={{ marginTop: "1rem" }}>Time</LegendItem>
             </LegendGrid>
           </Legend>
+          <img src={SevenGraph} alt="" />
         </Card>
         <Card>
           <CardHeader>
             <CardTitle>Text</CardTitle>
             <BsThreeDots size={25} color="#eee" />
           </CardHeader>
-          <PieChartTwo percent={67} color="#FF3A29" />
+          <svg
+            width="196"
+            height="196"
+            viewBox="0 0 196 196"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M196 98C196 152.124 152.124 196 98 196C43.8758 196 0 152.124 0 98C0 43.8758 43.8758 0 98 0C152.124 0 196 43.8758 196 98Z"
+              fill="#FF3A29"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M98 98L33.1617 171.485C12.0887 152.891 0 126.103 0 98C0 44.2387 44.2387 0 98 0C151.761 0 196 44.2387 196 98H98Z"
+              fill="#FFB200"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M98 98L55.7975 186.447C21.7646 170.209 0 135.709 0 98C0 61.3395 20.5714 27.624 53.1716 10.8545L98 98Z"
+              fill="#4339F2"
+            />
+          </svg>
+
           <Legend>
             <LegendGrid>
               <LegendItem>Restless</LegendItem>

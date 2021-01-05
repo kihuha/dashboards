@@ -1,13 +1,14 @@
+import { useEffect, useRef } from "react"
 import { RouteComponentProps } from "@reach/router"
 import styled from "styled-components"
 import { BsThreeDots } from "react-icons/bs"
+import * as d3 from "d3"
 
 // COMPONENTS
 import Layout from "../components/layout"
 import Progress from "../components/progress"
 import Button from "../components/button"
 import PieChart from "../components/piechart"
-import BarChart from "../components/barchart"
 
 // AVATARS
 import AvatarOne from "../img/avatar-four.jpg"
@@ -113,6 +114,67 @@ const PieChartTitle = styled.h2`
 `
 
 const OneWrapper = (props: RouteComponentProps) => {
+  const chartRef = useRef<any>(null)
+
+  // CREATE BAR CHART
+  const dataset: number[] = [
+    300,
+    209,
+    257,
+    139,
+    188,
+    340,
+    274,
+    178,
+    270,
+    146,
+    229,
+    290,
+  ]
+  const barWidth = 20
+
+  useEffect(() => {
+    if (chartRef.current !== null) {
+      const height = chartRef.current?.height?.baseVal?.value
+      const width = chartRef.current?.width?.baseVal?.value
+      const max = d3.max(dataset) || 0
+      const min = 0
+
+      const spacing = (width - 12 * 20) / 11
+
+      const yScale = d3.scaleLinear()
+      yScale.domain([min, max + 5]).range([0, height])
+
+      const svg = d3.select(chartRef.current)
+
+      svg
+        .selectAll("rect")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .text((d) => d)
+        .attr("x", (d, i) => i * (barWidth + spacing))
+        .attr("y", (d) => height - yScale(d))
+        .attr("width", barWidth)
+        .attr("height", (d) => yScale(d - 15))
+        .attr("fill", "#FFB200")
+        .attr("rx", 10)
+
+      svg
+        .selectAll("text")
+        .data(dataset)
+        .enter()
+        .append("text")
+        .text((d, i) => {
+          return String(i + 1).length === 1 ? "0" + (i + 1) : String(i + 1)
+        })
+        .attr("x", (d, i) => i * (barWidth + spacing))
+        .attr("y", height)
+        .attr("fill", "rgba(0,0,0,0.4)")
+        .style("transform", "translateX(5px)")
+    }
+  }, [chartRef.current])
+
   return (
     <Layout>
       <h1>Be single minded</h1>
@@ -277,11 +339,7 @@ const OneWrapper = (props: RouteComponentProps) => {
           </PieChartGrid>
         </Left>
         <Right>
-          <BarChart
-            data={[300, 30, 50]}
-            label="Aussie chef shares culinary"
-            color="#FFB200"
-          />
+          <svg style={{ height: "35rem", width: "100%" }} ref={chartRef}></svg>
         </Right>
       </BottomGrid>
     </Layout>
