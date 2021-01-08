@@ -18,8 +18,16 @@ import AdIcon from "../img/ad-icon.svg"
 
 const CardGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 2rem;
+  grid-template-rows: 1fr 1fr 1fr;
+  row-gap: 2rem;
+  margin-bottom: 2rem;
+
+  @media (min-width: 1000px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 2rem;
+    margin-bottom: 0;
+  }
 `
 
 const Card = styled.div`
@@ -49,27 +57,39 @@ const CardSubtitle = styled.p`
 const CardContent = styled.div``
 
 const BottomGrid = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  column-gap: 1.5rem;
-  margin-top: 2rem;
-  margin-bottom: 5rem;
+  @media (min-width: 1000px) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+  }
 `
 const Right = styled.div`
-  padding: 3rem;
+  align-self: flex-start;
   background: white;
   border-radius: 1rem;
+
+  @media (min-width: 1000px) {
+    padding: 3rem;
+  }
 `
 const Left = styled.div``
 
 const Ad = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 2rem 3rem;
+  width: 100%;
   background: #4339f2;
   border-radius: 1rem;
   color: white;
+
+  @media (min-width: 1000px) {
+    flex-direction: row;
+  }
 `
 
 const AdImg = styled.img`
@@ -82,28 +102,44 @@ const AdTitle = styled.h2`
 `
 
 const AdText = styled.p`
-  width: 45rem;
   font-size: 1.4rem;
+
+  @media (min-width: 1000px) {
+    width: 45rem;
+  }
 `
 
 const AdRight = styled.div``
 const AdLeft = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
+
+  @media (min-width: 1000px) {
+    flex-direction: row;
+  }
 `
 
 const PieChartGrid = styled.div`
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 2rem;
+
+  @media (min-width: 1000px) {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
 `
 
 const PieChartCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 48%;
   height: 24rem;
+  margin-bottom: 1rem;
   padding: 3rem;
   background: white;
   border-radius: 1rem;
@@ -116,24 +152,25 @@ const PieChartTitle = styled.h2`
 const OneWrapper = (props: RouteComponentProps) => {
   const chartRef = useRef<any>(null)
 
-  // CREATE BAR CHART
-  const dataset: number[] = [
-    300,
-    209,
-    257,
-    139,
-    188,
-    340,
-    274,
-    178,
-    270,
-    146,
-    229,
-    290,
-  ]
   const barWidth = 20
 
   useEffect(() => {
+    // CREATE BAR CHART
+    const dataset: number[] = [
+      300,
+      209,
+      257,
+      139,
+      188,
+      340,
+      274,
+      178,
+      270,
+      146,
+      229,
+      290,
+    ]
+
     if (chartRef.current !== null) {
       const height = chartRef.current?.height?.baseVal?.value
       const width = chartRef.current?.width?.baseVal?.value
@@ -173,7 +210,7 @@ const OneWrapper = (props: RouteComponentProps) => {
         .attr("fill", "rgba(0,0,0,0.4)")
         .style("transform", "translateX(5px)")
     }
-  }, [chartRef.current])
+  }, [])
 
   return (
     <Layout>

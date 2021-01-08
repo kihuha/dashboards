@@ -23,19 +23,23 @@ const Wrapper = styled.section`
 `
 
 const Sidebar = styled.div`
-  display: flex;
-  position: fixed;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  top: 0;
-  left: 0;
-  width: 9.6rem;
-  height: 100vh;
-  padding: 4rem 1.3rem;
-  background: white;
-  border-top-right-radius: 3rem;
-  border-bottom-right-radius: 3rem;
+  display: none;
+
+  @media (min-width: 1000px) {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    width: 9.6rem;
+    height: 100vh;
+    padding: 4rem 1.3rem;
+    background: white;
+    border-top-right-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+  }
 `
 
 const Separator = styled.div`
@@ -69,11 +73,14 @@ const IconWrapper = styled.div`
 `
 
 const Navbar = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 2rem 0;
+  display: none;
+  @media (min-width: 1000px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2rem 0;
+  }
 `
 
 const SearchInput = styled.input`
@@ -123,8 +130,12 @@ const AvatarBadge = styled.div`
 
 const Content = styled.div`
   width: 100%;
-  margin-left: 9.6rem;
-  padding: 0 4rem;
+  padding: 0 1rem;
+
+  @media (min-width: 1000px) {
+    margin-left: 9.6rem;
+    padding: 0 4rem;
+  }
 `
 
 const MainArea = styled.div`
