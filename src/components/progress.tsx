@@ -4,6 +4,7 @@ import { hexToRgbA } from "../utils"
 const Progress = styled.div`
   display: block;
   height: 8px;
+  width: 100%;
   background: ${(props: { color: string }) =>
     `rgba(${hexToRgbA(props.color)}, 0.1)`};
   border-radius: 1rem;
@@ -22,6 +23,8 @@ const ProgressIcon = styled.div<any>`
 `
 
 const Wrapper = styled.div`
+  width: 100%;
+
   &:not(:last-child) {
     margin-bottom: 2.5rem;
   }
