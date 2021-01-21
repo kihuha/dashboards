@@ -59,6 +59,7 @@ const Bottom = styled.div`
   display: grid;
   grid-template-columns: 50% 22% 28%;
   column-gap: 2rem;
+  margin-bottom: 2rem;
 `
 const BottomLeft = styled.div``
 const Card = styled.div`
@@ -95,6 +96,7 @@ const BottomRight = styled(Paper)``
 const Thirteen = (props: RouteComponentProps) => {
   const topRef = useRef<HTMLDivElement | null>(null)
   const chartRef = useRef(null)
+  const lineChartRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const width = 14
@@ -224,6 +226,59 @@ const Thirteen = (props: RouteComponentProps) => {
       .style("transform", "translate(1px, 9px)")
   }, [])
 
+  useEffect(() => {
+    if (lineChartRef.current) {
+      const parent = d3
+        .select(lineChartRef.current)
+        .append("svg")
+        .style("height", "100%")
+        .style("width", "100%")
+      const width = lineChartRef.current.offsetWidth
+      const height = lineChartRef.current.offsetHeight
+
+      const xScale = d3.scaleLinear().domain([0, 100]).range([0, width])
+      const yScale = d3.scaleLinear().domain([0, 100]).range([0, height])
+
+      const data = [
+        [0, 0],
+        [10, 40],
+        [20, 25],
+        [35, 60],
+        [70, 10],
+        [90, 100],
+        [100, 90],
+      ]
+
+      // DRAW LINE
+      const lineGenerator: any = d3
+        .line()
+        .x((d) => xScale(d[0]))
+        .y((d) => height - yScale(d[1]))
+        .curve(d3.curveBasis)
+      const path = lineGenerator(data)
+      parent
+        .append("path")
+        .attr("fill", "none")
+        .attr("stroke", "none")
+        .attr("d", path)
+
+      // DRAW AREA
+      const areaGenerator: any = d3
+        .area()
+        .x((d) => xScale(d[0]))
+        .y0(height)
+        .y1((d) => height - yScale(d[1]))
+        .curve(d3.curveBasis)
+
+      const area = areaGenerator(data)
+      parent
+        .append("path")
+        .attr("fill", "none")
+        .attr("d", area)
+        .attr("fill", "#FFB200")
+    }
+  }, [])
+
   return (
     <Layout>
       <Top>
@@ -311,7 +366,42 @@ const Thirteen = (props: RouteComponentProps) => {
             <svg ref={chartRef}></svg>
           </div>
         </BottomCenter>
-        <BottomRight>BottomRight</BottomRight>
+        <BottomRight>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <SliderTotal>$45.90</SliderTotal>
+            <BsThreeDots size={20} />
+          </div>
+
+          <div
+            ref={lineChartRef}
+            style={{ position: "relative", height: "24.5rem" }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                top: "2rem",
+                left: "0",
+              }}
+            >
+              <p style={{ fontSize: "2rem" }}>Type Something</p>
+              <p
+                style={{
+                  marginTop: "0.5rem",
+                  fontSize: "1.4rem",
+                  color: "rgba(0,0,0,0.4)",
+                }}
+              >
+                03 Feb 2019
+              </p>
+            </div>
+          </div>
+        </BottomRight>
       </Bottom>
     </Layout>
   )
