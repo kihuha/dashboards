@@ -17,6 +17,7 @@ const Card = styled.div`
   padding: 2rem;
   background: white;
   min-height: 25rem;
+  border-radius: 5px;
 `
 const CardHeader = styled.div`
   display: flex;
@@ -63,6 +64,7 @@ const Bottom = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-top: 2rem;
+  margin-bottom: 2rem;
 `
 const Left = styled.div`
   display: block;
@@ -414,7 +416,138 @@ const Nine = (props: RouteComponentProps) => {
   })
 
   useEffect(() => {
-    // TODO DRAW FOUR CIRCLES WITH ARCS
+    const parent = d3
+      .select(circleChartRef.current)
+      .append("svg")
+      .style("height", "100%")
+      .style("width", "100%")
+
+    if (circleChartRef.current) {
+      const radius = circleChartRef.current.offsetWidth / 8 - 6
+      const groupOne = parent.append("g")
+      const groupTwo = parent.append("g")
+      const groupThree = parent.append("g")
+      const groupFour = parent.append("g")
+
+      // CIRCLES
+      groupOne
+        .append("circle")
+        .attr("cx", radius)
+        .attr("cy", circleChartRef.current.offsetHeight / 2)
+        .attr("r", radius)
+        .attr("fill", "#E2FBD7")
+
+      groupTwo
+        .append("circle")
+        .attr("cx", radius * 3 + 16)
+        .attr("cy", circleChartRef.current.offsetHeight / 2)
+        .attr("r", radius)
+        .attr("fill", "#DAD7FE")
+
+      groupThree
+        .append("circle")
+        .attr("cx", radius * 5 + 32)
+        .attr("cy", circleChartRef.current.offsetHeight / 2)
+        .attr("r", radius)
+        .attr("fill", "#FFE5D3")
+
+      groupFour
+        .append("circle")
+        .attr("cx", circleChartRef.current.offsetWidth - radius)
+        .attr("cy", circleChartRef.current.offsetHeight / 2)
+        .attr("r", radius)
+        .attr("fill", "#CCF8FE")
+
+      // ARCS
+      const arcOne: any = d3
+        .arc()
+        .cornerRadius(10)
+        .innerRadius(radius - 12)
+        .outerRadius(radius)
+        .startAngle(0)
+        .endAngle(Math.PI * 2 * 0.67)
+
+      const arcTwo: any = d3
+        .arc()
+        .cornerRadius(10)
+        .innerRadius(radius - 12)
+        .outerRadius(radius)
+        .startAngle(0)
+        .endAngle(Math.PI * 2 * 0.46)
+
+      const arcThree: any = d3
+        .arc()
+        .cornerRadius(10)
+        .innerRadius(radius - 12)
+        .outerRadius(radius)
+        .startAngle(0)
+        .endAngle(Math.PI * 2 * 0.15)
+
+      const arcFour: any = d3
+        .arc()
+        .cornerRadius(10)
+        .innerRadius(radius - 12)
+        .outerRadius(radius)
+        .startAngle(0)
+        .endAngle(Math.PI * 2 * 0.67)
+
+      groupOne
+        .append("path")
+        .attr("fill", "#34B53A")
+        .attr("d", arcOne())
+        .style("transform", `translate(${radius}px, 50%)`)
+
+      groupTwo
+        .append("path")
+        .attr("fill", "#4339F2")
+        .attr("d", arcTwo())
+        .style("transform", `translate(${radius * 3 + 16}px, 50%)`)
+
+      groupThree
+        .append("path")
+        .attr("fill", "#FF3A29")
+        .attr("d", arcThree())
+        .style("transform", `translate(${radius * 5 + 32}px, 50%)`)
+
+      groupFour
+        .append("path")
+        .attr("fill", "#02A0FC")
+        .attr("d", arcFour())
+        .style(
+          "transform",
+          `translate(${circleChartRef.current.offsetWidth - radius}px, 50%)`
+        )
+
+      // TEXT
+      groupOne
+        .append("text")
+        .text("67%")
+        .style("font-size", "2rem")
+        .style("transform", `translate(${radius - 16}px, 50%)`)
+
+      groupTwo
+        .append("text")
+        .text("46%")
+        .style("font-size", "2rem")
+        .style("transform", `translate(${radius * 3 + 16 - 16}px, 50%)`)
+
+      groupThree
+        .append("text")
+        .text("15%")
+        .style("font-size", "2rem")
+        .style("transform", `translate(${radius * 5 + 32 - 16}px, 50%)`)
+
+      groupFour
+        .append("text")
+        .text("67%")
+        .style("font-size", "2rem")
+        .style(
+          "transform",
+          `translate(${
+            circleChartRef.current.offsetWidth - radius - 16
+          }px, 50%)`
+        )
+    }
   }, [])
 
   return (
@@ -499,7 +632,7 @@ const Nine = (props: RouteComponentProps) => {
         </Card>
       </Top>
       <Bottom>
-        <Left>
+        <Left style={{ height: "38rem" }}>
           <CardHeader>
             <Legend>
               <LegendItem>
@@ -517,9 +650,13 @@ const Nine = (props: RouteComponentProps) => {
             </Legend>
             <BsThreeDotsVertical size={20} />
           </CardHeader>
-          <div ref={multiBarRef} style={{ height: "36rem" }}></div>
+          <div ref={multiBarRef} style={{ height: "24rem" }}></div>
         </Left>
-        <Right>
+        <Right style={{ height: "38rem" }}>
+          <CardHeader>
+            <CardTitle>Text</CardTitle>
+            <BsThreeDotsVertical size={20} />
+          </CardHeader>
           <Legend>
             <LegendItem>
               <LegendIcon color="#FFB200"></LegendIcon>
@@ -539,7 +676,7 @@ const Nine = (props: RouteComponentProps) => {
             </LegendItem>
           </Legend>
 
-          <div ref={circleChartRef} style={{ height: "36rem" }}></div>
+          <div ref={circleChartRef} style={{ height: "24rem" }}></div>
 
           <p style={{ fontSize: "1.4rem", color: "rgba(0,0,0,0.4)" }}>
             Every large design company whether it’s a multi-national branding
