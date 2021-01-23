@@ -136,7 +136,7 @@ interface IContent {
   body: string
   amount: number
   badges: {
-    color: string
+    background: string
     label: string
   }[]
   images: any[]
@@ -303,15 +303,15 @@ const Eleven = (props: RouteComponentProps) => {
       badges: [
         {
           label: "Designer",
-          color: "#DAD7FE",
+          background: "#DAD7FE",
         },
         {
           label: "Lost",
-          color: "#FFE5D3",
+          background: "#FFE5D3",
         },
         {
           label: "Hubble",
-          color: "#E2FBD7",
+          background: "#E2FBD7",
         },
       ],
       images: [One, Two, Three],
@@ -324,11 +324,11 @@ const Eleven = (props: RouteComponentProps) => {
       badges: [
         {
           label: "Project",
-          color: "#FFF5CC",
+          background: "#FFF5CC",
         },
         {
           label: "Digital",
-          color: "#CCF8FE",
+          background: "#CCF8FE",
         },
       ],
       images: [Four],
@@ -341,11 +341,11 @@ const Eleven = (props: RouteComponentProps) => {
       badges: [
         {
           label: "Designer",
-          color: "#DAD7FE",
+          background: "#DAD7FE",
         },
         {
           label: "Lost",
-          color: "#FFE5D3",
+          background: "#FFE5D3",
         },
       ],
       images: [Five, Six],
@@ -358,7 +358,11 @@ const Eleven = (props: RouteComponentProps) => {
           <Card key={index}>
             <CardHeader>
               {content.badges.map((badge) => (
-                <Badge color={badge.color} label={badge.label} />
+                <Badge
+                  color="#000"
+                  background={badge.background}
+                  label={badge.label}
+                />
               ))}
             </CardHeader>
 

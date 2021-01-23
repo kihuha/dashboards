@@ -22,7 +22,7 @@ const Page = (props: RouteComponentProps) => {
 
       <CardWrapper>
         <Card>
-          <Button modifiers="dangerLight">Darius</Button>
+          <Button modifiers="primary">Darius</Button>
         </Card>
         <Card></Card>
         <Card></Card>

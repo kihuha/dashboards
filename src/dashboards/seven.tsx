@@ -6,7 +6,6 @@ import { BsThreeDots } from "react-icons/bs"
 import Layout from "../components/layout"
 import Button from "../components/button"
 import Progress from "../components/progress"
-import { PieChartTwo } from "../components/piechart"
 import Hero from "../img/seven-hero.svg"
 import SevenGraph from "../img/seven-graph.svg"
 
@@ -127,7 +126,7 @@ const Seven = (props: RouteComponentProps) => {
             <CardTitle>Text</CardTitle>
             <BsThreeDots size={25} color="#eee" />
           </CardHeader>
-          <PieChartTwo percent={67} color="#FF3A29" />
+          {/* <PieChartTwo percent={67} color="#FF3A29" /> */}
           <Legend>
             <LegendGrid>
               <LegendItem>Restless</LegendItem>

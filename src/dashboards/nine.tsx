@@ -7,6 +7,9 @@ import * as d3 from "d3"
 // COMPONENTS
 import Layout from "../components/layout"
 
+import { color } from "../design"
+import { generateDoughnut, generateArc } from "../chartUtils"
+
 const Top = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -80,61 +83,10 @@ const Right = styled.div`
 `
 
 const Nine = (props: RouteComponentProps) => {
-  const circularsRef = useRef<HTMLDivElement | null>(null)
   const lineRef = useRef<HTMLDivElement | null>(null)
   const barRef = useRef<HTMLDivElement | null>(null)
   const areaRef = useRef<HTMLDivElement | null>(null)
   const multiBarRef = useRef<HTMLDivElement | null>(null)
-  const circleChartRef = useRef<HTMLDivElement | null>(null)
-
-  useEffect(() => {
-    const parent = d3
-      .select(circularsRef.current)
-      .append("svg")
-      .style("height", "100%")
-    const colors = ["#4339F2", "#FF3A29", "#FFB200"]
-
-    const arcOne: any = d3
-      .arc()
-      .innerRadius(27)
-      .outerRadius(44)
-      .startAngle(0)
-      .endAngle(Math.PI * 2)
-
-    const arcTwo: any = d3
-      .arc()
-      .innerRadius(53.5)
-      .outerRadius(70.5)
-      .startAngle(0)
-      .endAngle(Math.PI * 2)
-
-    const arcThree: any = d3
-      .arc()
-      .innerRadius(80)
-      .outerRadius(97)
-      .startAngle(0)
-      .endAngle(Math.PI * 2)
-
-    if (circularsRef.current) {
-      parent
-        .append("path")
-        .attr("d", arcOne())
-        .attr("fill", colors[0])
-        .style("transform", "translate(50%, 50%)")
-
-      parent
-        .append("path")
-        .attr("d", arcTwo())
-        .attr("fill", colors[1])
-        .style("transform", "translate(50%, 50%)")
-
-      parent
-        .append("path")
-        .attr("d", arcThree())
-        .attr("fill", colors[2])
-        .style("transform", "translate(50%, 50%)")
-    }
-  }, [])
 
   useEffect(() => {
     const parent = d3
@@ -415,141 +367,6 @@ const Nine = (props: RouteComponentProps) => {
     }
   })
 
-  useEffect(() => {
-    const parent = d3
-      .select(circleChartRef.current)
-      .append("svg")
-      .style("height", "100%")
-      .style("width", "100%")
-
-    if (circleChartRef.current) {
-      const radius = circleChartRef.current.offsetWidth / 8 - 6
-      const groupOne = parent.append("g")
-      const groupTwo = parent.append("g")
-      const groupThree = parent.append("g")
-      const groupFour = parent.append("g")
-
-      // CIRCLES
-      groupOne
-        .append("circle")
-        .attr("cx", radius)
-        .attr("cy", circleChartRef.current.offsetHeight / 2)
-        .attr("r", radius)
-        .attr("fill", "#E2FBD7")
-
-      groupTwo
-        .append("circle")
-        .attr("cx", radius * 3 + 16)
-        .attr("cy", circleChartRef.current.offsetHeight / 2)
-        .attr("r", radius)
-        .attr("fill", "#DAD7FE")
-
-      groupThree
-        .append("circle")
-        .attr("cx", radius * 5 + 32)
-        .attr("cy", circleChartRef.current.offsetHeight / 2)
-        .attr("r", radius)
-        .attr("fill", "#FFE5D3")
-
-      groupFour
-        .append("circle")
-        .attr("cx", circleChartRef.current.offsetWidth - radius)
-        .attr("cy", circleChartRef.current.offsetHeight / 2)
-        .attr("r", radius)
-        .attr("fill", "#CCF8FE")
-
-      // ARCS
-      const arcOne: any = d3
-        .arc()
-        .cornerRadius(10)
-        .innerRadius(radius - 12)
-        .outerRadius(radius)
-        .startAngle(0)
-        .endAngle(Math.PI * 2 * 0.67)
-
-      const arcTwo: any = d3
-        .arc()
-        .cornerRadius(10)
-        .innerRadius(radius - 12)
-        .outerRadius(radius)
-        .startAngle(0)
-        .endAngle(Math.PI * 2 * 0.46)
-
-      const arcThree: any = d3
-        .arc()
-        .cornerRadius(10)
-        .innerRadius(radius - 12)
-        .outerRadius(radius)
-        .startAngle(0)
-        .endAngle(Math.PI * 2 * 0.15)
-
-      const arcFour: any = d3
-        .arc()
-        .cornerRadius(10)
-        .innerRadius(radius - 12)
-        .outerRadius(radius)
-        .startAngle(0)
-        .endAngle(Math.PI * 2 * 0.67)
-
-      groupOne
-        .append("path")
-        .attr("fill", "#34B53A")
-        .attr("d", arcOne())
-        .style("transform", `translate(${radius}px, 50%)`)
-
-      groupTwo
-        .append("path")
-        .attr("fill", "#4339F2")
-        .attr("d", arcTwo())
-        .style("transform", `translate(${radius * 3 + 16}px, 50%)`)
-
-      groupThree
-        .append("path")
-        .attr("fill", "#FF3A29")
-        .attr("d", arcThree())
-        .style("transform", `translate(${radius * 5 + 32}px, 50%)`)
-
-      groupFour
-        .append("path")
-        .attr("fill", "#02A0FC")
-        .attr("d", arcFour())
-        .style(
-          "transform",
-          `translate(${circleChartRef.current.offsetWidth - radius}px, 50%)`
-        )
-
-      // TEXT
-      groupOne
-        .append("text")
-        .text("67%")
-        .style("font-size", "2rem")
-        .style("transform", `translate(${radius - 16}px, 50%)`)
-
-      groupTwo
-        .append("text")
-        .text("46%")
-        .style("font-size", "2rem")
-        .style("transform", `translate(${radius * 3 + 16 - 16}px, 50%)`)
-
-      groupThree
-        .append("text")
-        .text("15%")
-        .style("font-size", "2rem")
-        .style("transform", `translate(${radius * 5 + 32 - 16}px, 50%)`)
-
-      groupFour
-        .append("text")
-        .text("67%")
-        .style("font-size", "2rem")
-        .style(
-          "transform",
-          `translate(${
-            circleChartRef.current.offsetWidth - radius - 16
-          }px, 50%)`
-        )
-    }
-  }, [])
-
   return (
     <Layout>
       <Top>
@@ -558,7 +375,27 @@ const Nine = (props: RouteComponentProps) => {
             <CardTitle>Text</CardTitle>
             <BsThreeDotsVertical size={20} />
           </CardHeader>
-          <div ref={circularsRef} style={{ height: "20rem" }}></div>
+          <div style={{ height: "20rem" }}>
+            <svg style={{ width: "100%", height: "100%" }}>
+              <g>
+                <path
+                  d={generateArc(17, 44, 100)}
+                  fill={color.primary.main}
+                  style={{ transform: "translate(50%, 50%)" }}
+                ></path>
+                <path
+                  d={generateArc(17, 70, 100)}
+                  fill={color.danger.main}
+                  style={{ transform: "translate(50%, 50%)" }}
+                ></path>
+                <path
+                  d={generateArc(17, 97, 100)}
+                  fill={color.warning.main}
+                  style={{ transform: "translate(50%, 50%)" }}
+                ></path>
+              </g>
+            </svg>
+          </div>
           <CardFooter>
             <LegendItem>
               <LegendIcon color="#4339F2"></LegendIcon>
@@ -676,7 +513,25 @@ const Nine = (props: RouteComponentProps) => {
             </LegendItem>
           </Legend>
 
-          <div ref={circleChartRef} style={{ height: "24rem" }}></div>
+          {/* <div ref={circleChartRef} style={{ height: "24rem" }}></div> */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              margin: "4rem 0 3.5rem 0",
+            }}
+          >
+            <div>
+              {generateDoughnut("12.8rem", "12.8rem", 67, color.success)}
+            </div>
+            <div>
+              {generateDoughnut("12.8rem", "12.8rem", 46, color.primary)}
+            </div>
+            <div>
+              {generateDoughnut("12.8rem", "12.8rem", 15, color.danger)}
+            </div>
+            <div>{generateDoughnut("12.8rem", "12.8rem", 67, color.info)}</div>
+          </div>
 
           <p style={{ fontSize: "1.4rem", color: "rgba(0,0,0,0.4)" }}>
             Every large design company whether it’s a multi-national branding

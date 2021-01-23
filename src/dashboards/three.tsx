@@ -8,6 +8,8 @@ import Button from "../components/button"
 import Badge from "../components/badge"
 import Layout from "../components/layout"
 
+import { color } from "../design"
+
 const Header = styled.header`
   display: flex;
   align-items: center;
@@ -56,8 +58,6 @@ const CalendarDay = styled.p`
 
 const CalendarEvent = styled(Badge)`
   position: absolute;
-  background: ${(props: any) => `rgba(${hexToRgbA(props.color)}, 0.2)`};
-  color: ${(props: any) => props.color};
   font-size: 1.4rem;
   max-width: 30rem;
   z-index: 1000;
@@ -70,7 +70,8 @@ const Three = (props: RouteComponentProps) => {
       date: 2,
       events: [
         {
-          color: "#FFB200",
+          color: color.warning.main,
+          background: color.warning.light,
           label: "The glossary of telescopes",
         },
       ],
@@ -87,7 +88,8 @@ const Three = (props: RouteComponentProps) => {
       date: 11,
       events: [
         {
-          color: "#02A0FC",
+          color: color.info.main,
+          background: color.info.light,
           label: "Space the final frontier",
         },
       ],
@@ -101,7 +103,8 @@ const Three = (props: RouteComponentProps) => {
       date: 17,
       events: [
         {
-          color: "#34B53A",
+          color: color.success.main,
+          background: color.success.light,
           label: "The amazing hubble",
         },
       ],
@@ -119,7 +122,8 @@ const Three = (props: RouteComponentProps) => {
       date: 27,
       events: [
         {
-          color: "#4339F2",
+          color: color.primary.main,
+          background: color.primary.light,
           label: "The basics of buying a telescope",
         },
       ],
@@ -129,7 +133,8 @@ const Three = (props: RouteComponentProps) => {
       date: 29,
       events: [
         {
-          color: "#4339F2",
+          color: color.primary.main,
+          background: color.primary.light,
           label: "Dude you re getting a telescope",
         },
       ],
@@ -175,11 +180,15 @@ const Three = (props: RouteComponentProps) => {
           <CalendarItem key={index}>
             <CalendarDay>{item.date}</CalendarDay>
             {item.events.map(
-              (event: { color: string; label: string }, index: number) => (
+              (
+                event: { color: string; background: string; label: string },
+                index: number
+              ) => (
                 <CalendarEvent
                   key={index}
                   label={event.label}
                   color={event.color}
+                  background={event.background}
                 />
               )
             )}

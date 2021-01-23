@@ -40,6 +40,7 @@ const ButtonWrapper = styled.button<IButton>`
   font-family: inherit;
   border-radius: ${base.borderRadius};
   font-size: ${font.size.h4};
+  background: white;
 
   ${applyStyleModifiers(MODIFIER_CONFIG)}
 `
