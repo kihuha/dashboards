@@ -11,6 +11,7 @@ import Two from "../img/two.svg"
 import Three from "../img/three.svg"
 import Four from "../img/four.svg"
 import Five from "../img/five.svg"
+import { color } from "../design"
 
 const Content = styled.div`
   display: flex;
@@ -90,13 +91,13 @@ const HorizontalProgressIcon = styled.div`
   }
 
   &:nth-of-type(1) {
-    background: #4339f2;
+    background: ${color.primary.main};
   }
   &:nth-of-type(2) {
-    background: #ffb200;
+    background: ${color.warning.main};
   }
   &:nth-of-type(3) {
-    background: #ff3a29;
+    background: ${color.danger.main};
   }
 `
 
@@ -131,17 +132,17 @@ const LegendItem = styled.div`
 
   &:nth-of-type(1) {
     &::before {
-      background: #4339f2;
+      background: ${color.primary.main};
     }
   }
   &:nth-of-type(2) {
     &::before {
-      background: #ffb200;
+      background: ${color.warning.main};
     }
   }
   &:nth-of-type(3) {
     &::before {
-      background: #ff3a29;
+      background: ${color.danger.main};
     }
   }
 `
@@ -263,7 +264,7 @@ const FourWrapper = (props: RouteComponentProps) => {
           <Card>
             <CardIcon
               style={{
-                background: `rgba(${hexToRgbA("#34B53A")}, 0.2)`,
+                background: color.success.light,
               }}
             >
               <img src={One} alt="" />
@@ -271,13 +272,13 @@ const FourWrapper = (props: RouteComponentProps) => {
             <div>
               <CardTitle>Chris Newton</CardTitle>
               <CardText>Comets are a big source of meteoroids.</CardText>
-              <Progress color="#34B53A" width={20} />
+              <Progress color={color.success.main} width={20} />
             </div>
           </Card>
           <Card>
             <CardIcon
               style={{
-                background: `rgba(${hexToRgbA("#FF3A29")}, 0.2)`,
+                background: color.danger.light,
               }}
             >
               <img src={Two} alt="" />
@@ -285,13 +286,13 @@ const FourWrapper = (props: RouteComponentProps) => {
             <div>
               <CardTitle>Blanche Malone</CardTitle>
               <CardText>Comets are a big source of meteoroids.</CardText>
-              <Progress color="#FF3A29" width={20} />
+              <Progress color={color.danger.main} width={20} />
             </div>
           </Card>
           <Card>
             <CardIcon
               style={{
-                background: `rgba(${hexToRgbA("#02A0FC")}, 0.2)`,
+                background: color.info.light,
               }}
             >
               <img src={Three} alt="" />
@@ -299,13 +300,13 @@ const FourWrapper = (props: RouteComponentProps) => {
             <div>
               <CardTitle>Eunice Wilkins</CardTitle>
               <CardText>Comets are a big source of meteoroids.</CardText>
-              <Progress color="#02A0FC" width={20} />
+              <Progress color={color.info.main} width={20} />
             </div>
           </Card>
           <Card>
             <CardIcon
               style={{
-                background: `rgba(${hexToRgbA("#4339F2")}, 0.2)`,
+                background: color.primary.light,
               }}
             >
               <img src={Four} alt="" />
@@ -313,13 +314,13 @@ const FourWrapper = (props: RouteComponentProps) => {
             <div>
               <CardTitle>Phillip George</CardTitle>
               <CardText>Comets are a big source of meteoroids.</CardText>
-              <Progress color="#4339F2" width={40} />
+              <Progress color={color.primary.main} width={40} />
             </div>
           </Card>
           <Card>
             <CardIcon
               style={{
-                background: `rgba(${hexToRgbA("#FFB200")}, 0.2)`,
+                background: color.warning.light,
               }}
             >
               <img src={Five} alt="" />
@@ -327,7 +328,7 @@ const FourWrapper = (props: RouteComponentProps) => {
             <div>
               <CardTitle>Birdie Potter</CardTitle>
               <CardText>Comets are a big source of meteoroids.</CardText>
-              <Progress color="#FFB200" width={20} />
+              <Progress color={color.warning.main} width={20} />
             </div>
           </Card>
         </ContentCards>

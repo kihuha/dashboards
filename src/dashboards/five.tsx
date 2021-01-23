@@ -6,6 +6,8 @@ import Layout from "../components/layout"
 import { ProgressBase } from "../components/progress"
 import Menu from "../img/menu.svg"
 
+import { color } from "../design"
+
 const Content = styled.section`
   display: flex;
   flex-direction: column;
@@ -120,12 +122,12 @@ const LegendItem = styled.div`
 
   &:nth-of-type(1) {
     &::before {
-      background: #dad7fe;
+      background: ${color.primary.light};
     }
   }
   &:nth-of-type(2) {
     &::before {
-      background: #4339f2;
+      background: ${color.primary.main};
     }
   }
 `
@@ -146,11 +148,12 @@ const BarWrapper = styled.div`
 const Bar = styled.div<any>`
   width: 1.8rem;
   border-radius: 1rem;
-  background: ${(props: any) => (props.color ? props.color : "#DAD7FE")};
+  background: ${(props: any) =>
+    props.color ? props.color : color.primary.light};
   height: ${(props: any) => `${props.height}px`};
 
   &:nth-of-type(6) {
-    background: #4339f2;
+    background: ${color.primary.main};
   }
 `
 
@@ -185,23 +188,23 @@ const Five = (props: RouteComponentProps) => {
             <ProgressWrapper>
               <Progress>
                 <ProgressText>28 Jul 2019</ProgressText>
-                <ProgressBar color="#FF3A29" width={20} />
+                <ProgressBar color={color.danger.main} width={20} />
               </Progress>
               <Progress>
                 <ProgressText>07 Jan 2019</ProgressText>
-                <ProgressBar color="#FF3A29" width={20} />
+                <ProgressBar color={color.danger.main} width={20} />
               </Progress>
               <Progress>
                 <ProgressText>18 May 2019</ProgressText>
-                <ProgressBar color="#FF3A29" width={20} />
+                <ProgressBar color={color.danger.main} width={20} />
               </Progress>
               <Progress>
                 <ProgressText>23 May 2019</ProgressText>
-                <ProgressBar color="#FF3A29" width={20} />
+                <ProgressBar color={color.danger.main} width={20} />
               </Progress>
               <Progress>
                 <ProgressText>17 Feb 2019</ProgressText>
-                <ProgressBar color="#FF3A29" width={20} />
+                <ProgressBar color={color.danger.main} width={20} />
               </Progress>
             </ProgressWrapper>
             <BottomScale>

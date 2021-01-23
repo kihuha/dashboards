@@ -173,7 +173,7 @@ const Nine = (props: RouteComponentProps) => {
       parent
         .append("path")
         .attr("fill", "none")
-        .attr("stroke", "#FFB200")
+        .attr("stroke", color.warning.main)
         .attr("stroke-width", "4")
         .attr("d", pathOne)
 
@@ -187,14 +187,14 @@ const Nine = (props: RouteComponentProps) => {
       parent
         .append("path")
         .attr("fill", "none")
-        .attr("stroke", "#4339F2")
+        .attr("stroke", color.primary.main)
         .attr("stroke-width", "4")
         .attr("d", pathThree)
 
       parent
         .append("path")
         .attr("fill", "none")
-        .attr("stroke", "#FF3A29")
+        .attr("stroke", color.danger.main)
         .attr("stroke-width", "4")
         .attr("d", pathFour)
     }
@@ -228,7 +228,7 @@ const Nine = (props: RouteComponentProps) => {
         .data(dataset)
         .enter()
         .append("rect")
-        .attr("fill", "#FFB200")
+        .attr("fill", color.warning.main)
         .attr("x", (d, i) => xScale(i))
         .attr("y", (d) => chartHeight - yScale(d))
         .attr("width", barWidth)
@@ -283,11 +283,11 @@ const Nine = (props: RouteComponentProps) => {
       parent
         .append("path")
         .attr("fill", "none")
-        .attr("stroke", "#4339F2")
+        .attr("stroke", color.primary.main)
         .attr("stroke-width", "4")
         .attr("d", path)
 
-      parent.append("path").attr("d", area).attr("fill", "#DAD7FE")
+      parent.append("path").attr("d", area).attr("fill", color.primary.light)
     }
   }, [])
 
@@ -343,7 +343,7 @@ const Nine = (props: RouteComponentProps) => {
 
       group
         .append("rect")
-        .attr("fill", "#FFB200")
+        .attr("fill", color.warning.main)
         .attr("height", (d) => yScale(d[2]))
         .attr("width", 14)
         .attr("rx", 10)
@@ -351,7 +351,7 @@ const Nine = (props: RouteComponentProps) => {
 
       group
         .append("rect")
-        .attr("fill", "#34B53A")
+        .attr("fill", color.success.main)
         .attr("height", (d) => yScale(d[1]))
         .attr("width", 14)
         .attr("rx", 10)
@@ -359,7 +359,7 @@ const Nine = (props: RouteComponentProps) => {
 
       group
         .append("rect")
-        .attr("fill", "#4339F2")
+        .attr("fill", color.primary.main)
         .attr("height", (d) => yScale(d[0]))
         .attr("width", 14)
         .attr("rx", 10)
@@ -398,15 +398,15 @@ const Nine = (props: RouteComponentProps) => {
           </div>
           <CardFooter>
             <LegendItem>
-              <LegendIcon color="#4339F2"></LegendIcon>
+              <LegendIcon color={color.primary.main}></LegendIcon>
               Restless
             </LegendItem>
             <LegendItem>
-              <LegendIcon color="#FF3A29"></LegendIcon>
+              <LegendIcon color={color.danger.main}></LegendIcon>
               Awake
             </LegendItem>
             <LegendItem>
-              <LegendIcon color="#FFB200"></LegendIcon>
+              <LegendIcon color={color.warning.main}></LegendIcon>
               Deep
             </LegendItem>
           </CardFooter>
@@ -417,7 +417,7 @@ const Nine = (props: RouteComponentProps) => {
             <BsThreeDotsVertical size={20} />
           </CardHeader>
           <LegendItem>
-            <LegendIcon color="#FFB200"></LegendIcon>
+            <LegendIcon color={color.warning.main}></LegendIcon>
             Deep
           </LegendItem>
           <div
@@ -432,11 +432,11 @@ const Nine = (props: RouteComponentProps) => {
           </CardHeader>
           <Legend>
             <LegendItem>
-              <LegendIcon color="#4339F2"></LegendIcon>
+              <LegendIcon color={color.primary.main}></LegendIcon>
               Restless
             </LegendItem>
             <LegendItem>
-              <LegendIcon color="#DAD7FE"></LegendIcon>
+              <LegendIcon color={color.warning.main}></LegendIcon>
               Awake
             </LegendItem>
           </Legend>
@@ -449,19 +449,19 @@ const Nine = (props: RouteComponentProps) => {
           </CardHeader>
           <Legend>
             <LegendItem>
-              <LegendIcon color="#FF3A29"></LegendIcon>
+              <LegendIcon color={color.danger.main}></LegendIcon>
               Restless
             </LegendItem>
             <LegendItem>
-              <LegendIcon color="#FFB200"></LegendIcon>
+              <LegendIcon color={color.warning.main}></LegendIcon>
               Awake
             </LegendItem>
             <LegendItem>
-              <LegendIcon color="#34B53A"></LegendIcon>
+              <LegendIcon color={color.success.main}></LegendIcon>
               Deep
             </LegendItem>
             <LegendItem>
-              <LegendIcon color="#4339F2"></LegendIcon>
+              <LegendIcon color={color.primary.main}></LegendIcon>
               Time
             </LegendItem>
           </Legend>
@@ -473,15 +473,15 @@ const Nine = (props: RouteComponentProps) => {
           <CardHeader>
             <Legend>
               <LegendItem>
-                <LegendIcon color="#4339F2"></LegendIcon>
+                <LegendIcon color={color.primary.main}></LegendIcon>
                 Instagram
               </LegendItem>
               <LegendItem>
-                <LegendIcon color="#34B53A"></LegendIcon>
+                <LegendIcon color={color.success.main}></LegendIcon>
                 Facebook
               </LegendItem>
               <LegendItem>
-                <LegendIcon color="#FFB200"></LegendIcon>
+                <LegendIcon color={color.warning.main}></LegendIcon>
                 Twitter
               </LegendItem>
             </Legend>
@@ -496,24 +496,22 @@ const Nine = (props: RouteComponentProps) => {
           </CardHeader>
           <Legend>
             <LegendItem>
-              <LegendIcon color="#FFB200"></LegendIcon>
+              <LegendIcon color={color.warning.main}></LegendIcon>
               Instagram
             </LegendItem>
             <LegendItem>
-              <LegendIcon color="#4339F2"></LegendIcon>
+              <LegendIcon color={color.primary.main}></LegendIcon>
               Facebook
             </LegendItem>
             <LegendItem>
-              <LegendIcon color="#02A0FC"></LegendIcon>
+              <LegendIcon color={color.info.main}></LegendIcon>
               Twitter
             </LegendItem>
             <LegendItem>
-              <LegendIcon color="#FF3A29"></LegendIcon>
+              <LegendIcon color={color.danger.main}></LegendIcon>
               Twitter
             </LegendItem>
           </Legend>
-
-          {/* <div ref={circleChartRef} style={{ height: "24rem" }}></div> */}
           <div
             style={{
               display: "flex",

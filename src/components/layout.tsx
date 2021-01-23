@@ -18,6 +18,8 @@ import AvatarOne from "../img/avatar-one.jpg"
 import AvatarTwo from "../img/avatar-two.jpg"
 import AvatarThree from "../img/avatar-three.jpg"
 
+import { color } from "../design"
+
 const Wrapper = styled.section`
   display: flex;
 `
@@ -196,7 +198,7 @@ const Layout = (props: { children: JSX.Element | JSX.Element[] }) => (
           </Avatar>
           <Avatar style={{ background: `url(${AvatarTwo})` }} />
           <Avatar style={{ background: `url(${AvatarThree})` }} />
-          <Avatar style={{ background: "#4339F2", color: "white" }}>
+          <Avatar style={{ background: color.primary.main, color: "white" }}>
             <BsPlus size={25} />
           </Avatar>
         </AvatarGrid>

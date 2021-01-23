@@ -150,13 +150,13 @@ const Three = (props: RouteComponentProps) => {
           <Button
             style={{
               marginRight: "1rem",
-              background: "#FF3A29",
+              background: color.danger.main,
               color: "white",
             }}
           >
             Month
           </Button>
-          <Button style={{ background: "FFE5D3", color: "#FF3A29" }}>
+          <Button style={{ background: "FFE5D3", color: color.danger.main }}>
             Week
           </Button>
         </div>

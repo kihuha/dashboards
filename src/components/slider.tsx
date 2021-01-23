@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { hexToRgbA } from "../utils"
+import { color } from "../design"
 
 const Slider = styled.div`
   &:not(:last-child) {
@@ -34,7 +35,7 @@ const SliderBack = styled.div`
 const SliderFill = styled.div<any>`
   width: ${(props: any) => `${props.width}%`};
   height: 100%;
-  background: #4339f2;
+  background: ${color.primary.main};
   border-radius: 5px;
 `
 
@@ -48,7 +49,7 @@ const SliderIcon = styled.div<any>`
   transform: translate(-50%, -50%);
   width: 2.4rem;
   height: 2.4rem;
-  background: #4339f2;
+  background: ${color.primary.main};
   border-radius: 100%;
 
   &:before {
@@ -68,7 +69,7 @@ const SliderWrapper = (props: any) => {
         <SliderTitle>{props.label}</SliderTitle>
         <SliderAmount>{props.amount}</SliderAmount>
       </SliderTop>
-      <SliderBack color="#4339F2">
+      <SliderBack color={color.primary.main}>
         <SliderFill width={props.width} />
         <SliderIcon width={props.width} />
       </SliderBack>

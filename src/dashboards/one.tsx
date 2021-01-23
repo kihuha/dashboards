@@ -196,7 +196,7 @@ const OneWrapper = (props: RouteComponentProps) => {
         .attr("y", (d) => height - yScale(d))
         .attr("width", barWidth)
         .attr("height", (d) => yScale(d - 15))
-        .attr("fill", "#FFB200")
+        .attr("fill", color.warning.main)
         .attr("rx", 10)
 
       svg
@@ -242,19 +242,19 @@ const OneWrapper = (props: RouteComponentProps) => {
             <Progress
               label="Instagram"
               count="65,376"
-              color="#34B53A"
+              color={color.success.main}
               width={10}
             />
             <Progress
               label="Facebook"
               count="12,109"
-              color="#34B53A"
+              color={color.success.main}
               width={40}
             />
             <Progress
               label="Twitter"
               count="132,645"
-              color="#34B53A"
+              color={color.success.main}
               width={30}
             />
           </CardContent>
@@ -282,19 +282,19 @@ const OneWrapper = (props: RouteComponentProps) => {
             <Progress
               label="Instagram"
               count="65,376"
-              color="#FF3A29"
+              color={color.danger.main}
               width={10}
             />
             <Progress
               label="Facebook"
               count="12,109"
-              color="#FF3A29"
+              color={color.danger.main}
               width={40}
             />
             <Progress
               label="Twitter"
               count="132,645"
-              color="#FF3A29"
+              color={color.danger.main}
               width={30}
             />
           </CardContent>
@@ -322,19 +322,19 @@ const OneWrapper = (props: RouteComponentProps) => {
             <Progress
               label="Instagram"
               count="65,376"
-              color="#4339F2"
+              color={color.primary.main}
               width={10}
             />
             <Progress
               label="Facebook"
               count="12,109"
-              color="#4339F2"
+              color={color.primary.main}
               width={40}
             />
             <Progress
               label="Twitter"
               count="132,645"
-              color="#4339F2"
+              color={color.primary.main}
               width={30}
             />
           </CardContent>
