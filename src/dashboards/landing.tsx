@@ -115,7 +115,7 @@ const LandingWrapper = (props: RouteComponentProps) => {
     { label: "Eleven", img: Eleven, completed: true, link: "/eleven" },
     { label: "Twelve", img: Twelve, completed: true, link: "/twelve" },
     { label: "Thirteen", img: Thirteen, completed: true, link: "/thirteen" },
-    { label: "Fourteen", img: Fourteen, completed: false, link: "/fourteen" },
+    { label: "Fourteen", img: Fourteen, completed: true, link: "/fourteen" },
     { label: "Fifteen", img: Fifteen, completed: false, link: "/fifteen" },
   ]
 
