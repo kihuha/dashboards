@@ -193,6 +193,7 @@ const Thirteen = (props: RouteComponentProps) => {
       .outerRadius(100)
       .startAngle(0)
       .endAngle(Math.PI * 2 * 0.64)
+      .cornerRadius(10)
 
     parent
       .append("path")
