@@ -16,6 +16,8 @@ Object.keys(color).map((colorName: string) => {
     color: ${color[colorName].main};
     background: ${color[colorName].light};
   `
+
+  return
 })
 
 interface IButton {
