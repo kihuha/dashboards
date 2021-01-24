@@ -15,6 +15,8 @@ import AvatarOne from "../img/eight-avatar-one.png"
 import AvatarTwo from "../img/eight-avatar-two.png"
 import AvatarThree from "../img/eight-avatar-three.png"
 
+import { color } from "../design"
+
 const Paper = styled.div`
   padding: 2rem;
   background-color: white;
@@ -157,7 +159,7 @@ const Thirteen = (props: RouteComponentProps) => {
           .attr("y", (d) => parentHeight - yScale(d[0]))
           .attr("height", (d) => yScale(d[0]))
           .attr("width", width)
-          .attr("fill", "#02A0FC")
+          .attr("fill", color.warning.main)
           .attr("rx", 10)
 
         parent
@@ -191,6 +193,7 @@ const Thirteen = (props: RouteComponentProps) => {
       .outerRadius(100)
       .startAngle(0)
       .endAngle(Math.PI * 2 * 0.64)
+      .cornerRadius(10)
 
     parent
       .append("path")
@@ -202,7 +205,7 @@ const Thirteen = (props: RouteComponentProps) => {
       .append("path")
       .attr("d", path())
       .style("transform", " translate(50%, 50%)")
-      .attr("fill", "#FF3A29")
+      .attr("fill", color.danger.main)
       .attr("stroke-linecap", "round")
 
     const innerGroup = parent.append("g")
@@ -212,7 +215,7 @@ const Thirteen = (props: RouteComponentProps) => {
       .attr("cx", "100")
       .attr("cy", "100")
       .attr("r", "43")
-      .attr("fill", "#FF3A29")
+      .attr("fill", color.danger.main)
 
     innerGroup
       .append("text")
@@ -275,7 +278,7 @@ const Thirteen = (props: RouteComponentProps) => {
         .append("path")
         .attr("fill", "none")
         .attr("d", area)
-        .attr("fill", "#FFB200")
+        .attr("fill", color.warning.main)
     }
   }, [])
 
@@ -321,7 +324,12 @@ const Thirteen = (props: RouteComponentProps) => {
                 <CardText>Edinburgh</CardText>
               </div>
             </div>
-            <Progress label="" count="70%" color="#4339F2" width={70} />
+            <Progress
+              label=""
+              count="70%"
+              color={color.primary.main}
+              width={70}
+            />
           </Card>
           <Card>
             <div style={{ display: "flex", alignItems: "center" }}>
@@ -331,7 +339,12 @@ const Thirteen = (props: RouteComponentProps) => {
                 <CardText>Rio de Janeiro</CardText>
               </div>
             </div>
-            <Progress label="" count="60%" color="#4339F2" width={60} />
+            <Progress
+              label=""
+              count="60%"
+              color={color.primary.main}
+              width={60}
+            />
           </Card>
           <Card>
             <div style={{ display: "flex", alignItems: "center" }}>
@@ -341,7 +354,12 @@ const Thirteen = (props: RouteComponentProps) => {
                 <CardText>Birmingham</CardText>
               </div>
             </div>
-            <Progress label="" count="56%" color="#4339F2" width={56} />
+            <Progress
+              label=""
+              count="56%"
+              color={color.primary.main}
+              width={56}
+            />
           </Card>
         </BottomLeft>
         <BottomCenter>

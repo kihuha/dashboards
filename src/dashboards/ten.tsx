@@ -22,6 +22,8 @@ import HeroFive from "../img/ten-hero-five.jpg"
 import HeroSix from "../img/ten-hero-six.jpg"
 import HeroSeven from "../img/ten-hero-seven.jpg"
 
+import { color } from "../design"
+
 const Top = styled.div`
   display: flex;
   justify-content: space-between;
@@ -110,7 +112,7 @@ const Ten = (props: RouteComponentProps) => {
       date: "22 Sep 2019",
       time: "01:36AM",
       amount: "$367.00",
-      color: "#FF3A29",
+      color: color.danger.main,
     },
     {
       img: AvatarThree,
@@ -118,7 +120,7 @@ const Ten = (props: RouteComponentProps) => {
       date: "29 Oct 2019",
       time: "06:58PM",
       amount: "$29.99",
-      color: "#02A0FC",
+      color: color.info.main,
     },
     {
       img: AvatarFour,
@@ -126,7 +128,7 @@ const Ten = (props: RouteComponentProps) => {
       date: "16 May 2019",
       time: "02:41PM",
       amount: "$1240.29",
-      color: "#4339F2",
+      color: color.primary.main,
     },
   ]
 
@@ -137,7 +139,7 @@ const Ten = (props: RouteComponentProps) => {
       date: "04 Apr 2019",
       time: "09:04AM",
       amount: "$560.80",
-      color: "#34B53A",
+      color: color.success.main,
     },
     {
       img: AvatarSix,
@@ -145,7 +147,7 @@ const Ten = (props: RouteComponentProps) => {
       date: "06 Aug 2019",
       time: "08:22AM",
       amount: "$765.00",
-      color: "#FFB200",
+      color: color.warning.main,
     },
     {
       img: AvatarSeven,
@@ -161,7 +163,7 @@ const Ten = (props: RouteComponentProps) => {
       date: "06 Aug 2019",
       time: "03:49AM",
       amount: "$400.00",
-      color: "#FF3A29",
+      color: color.danger.main,
     },
   ]
 

@@ -8,13 +8,15 @@ import * as d3 from "d3"
 import Layout from "../components/layout"
 import Progress from "../components/progress"
 import Button from "../components/button"
-import PieChart from "../components/piechart"
 
 // AVATARS
 import AvatarOne from "../img/avatar-four.jpg"
 import AvatarTwo from "../img/avatar-two.jpg"
 import AvatarThree from "../img/avatar-five.jpg"
 import AdIcon from "../img/ad-icon.svg"
+
+import { color } from "../design"
+import generateDoughnut from "../chartUtils/generateDoughnut"
 
 const CardGrid = styled.div`
   display: grid;
@@ -194,7 +196,7 @@ const OneWrapper = (props: RouteComponentProps) => {
         .attr("y", (d) => height - yScale(d))
         .attr("width", barWidth)
         .attr("height", (d) => yScale(d - 15))
-        .attr("fill", "#FFB200")
+        .attr("fill", color.warning.main)
         .attr("rx", 10)
 
       svg
@@ -240,19 +242,19 @@ const OneWrapper = (props: RouteComponentProps) => {
             <Progress
               label="Instagram"
               count="65,376"
-              color="#34B53A"
+              color={color.success.main}
               width={10}
             />
             <Progress
               label="Facebook"
               count="12,109"
-              color="#34B53A"
+              color={color.success.main}
               width={40}
             />
             <Progress
               label="Twitter"
               count="132,645"
-              color="#34B53A"
+              color={color.success.main}
               width={30}
             />
           </CardContent>
@@ -280,19 +282,19 @@ const OneWrapper = (props: RouteComponentProps) => {
             <Progress
               label="Instagram"
               count="65,376"
-              color="#FF3A29"
+              color={color.danger.main}
               width={10}
             />
             <Progress
               label="Facebook"
               count="12,109"
-              color="#FF3A29"
+              color={color.danger.main}
               width={40}
             />
             <Progress
               label="Twitter"
               count="132,645"
-              color="#FF3A29"
+              color={color.danger.main}
               width={30}
             />
           </CardContent>
@@ -320,19 +322,19 @@ const OneWrapper = (props: RouteComponentProps) => {
             <Progress
               label="Instagram"
               count="65,376"
-              color="#4339F2"
+              color={color.primary.main}
               width={10}
             />
             <Progress
               label="Facebook"
               count="12,109"
-              color="#4339F2"
+              color={color.primary.main}
               width={40}
             />
             <Progress
               label="Twitter"
               count="132,645"
-              color="#4339F2"
+              color={color.primary.main}
               width={30}
             />
           </CardContent>
@@ -359,19 +361,19 @@ const OneWrapper = (props: RouteComponentProps) => {
           <PieChartGrid>
             <PieChartCard>
               <PieChartTitle>Twitter</PieChartTitle>
-              <PieChart percent={67} color="#34B53A" />
+              {generateDoughnut("12.8rem", "12.8rem", 67, color.success)}
             </PieChartCard>
             <PieChartCard>
               <PieChartTitle>Instagram</PieChartTitle>
-              <PieChart percent={46} color="#4339F2" />
+              {generateDoughnut("12.8rem", "12.8rem", 46, color.primary)}
             </PieChartCard>
             <PieChartCard>
               <PieChartTitle>Facebook</PieChartTitle>
-              <PieChart percent={15} color="#FF3A29" />
+              {generateDoughnut("12.8rem", "12.8rem", 15, color.danger)}
             </PieChartCard>
             <PieChartCard>
               <PieChartTitle>Behance</PieChartTitle>
-              <PieChart percent={67} color="#02A0FC" />
+              {generateDoughnut("12.8rem", "12.8rem", 67, color.info)}
             </PieChartCard>
           </PieChartGrid>
         </Left>

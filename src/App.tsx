@@ -19,6 +19,7 @@ import Twelve from "./dashboards/twelve"
 import Thirteen from "./dashboards/thirteen"
 import Fourteen from "./dashboards/fourteen"
 import Fifteen from "./dashboards/fifteen"
+import LandingComponents from "./components/landingCompoents"
 
 // STYLES
 const GlobalStyle = createGlobalStyle`
@@ -61,6 +62,7 @@ const App = () => {
         <Thirteen path="/thirteen" />
         <Fourteen path="/fourteen" />
         <Fifteen path="/fifteen" />
+        <LandingComponents path="/new" />
       </Router>
     </>
   )

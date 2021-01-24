@@ -6,6 +6,8 @@ import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs"
 import Button from "../components/button"
 import Layout from "../components/layout"
 
+import { color } from "../design"
+
 const Header = styled.header`
   display: flex;
   align-items: center;
@@ -79,15 +81,13 @@ const Six = (props: RouteComponentProps) => {
           <Button
             style={{
               marginRight: "1rem",
-              background: "#FF3A29",
+              background: color.danger.main,
               color: "white",
             }}
           >
             Month
           </Button>
-          <Button style={{ background: "FFE5D3", color: "#FF3A29" }}>
-            Week
-          </Button>
+          <Button style={{ color: color.danger.main }}>Week</Button>
         </div>
         <Date>
           <BsArrowLeftShort size={25} />
@@ -102,7 +102,7 @@ const Six = (props: RouteComponentProps) => {
           </DayHeader>
           <Event
             time={getTop(1330)}
-            color="#02A0FC"
+            color={color.info.main}
             style={{ height: "20rem" }}
           >
             <EventTime>1330</EventTime>
@@ -113,11 +113,15 @@ const Six = (props: RouteComponentProps) => {
           <DayHeader>
             <span>4</span>Tuesday
           </DayHeader>
-          <Event time={getTop(0)} color="#02A0FC">
+          <Event time={getTop(0)} color={color.info.main}>
             <EventTime>1100</EventTime>
             <EventLabel>Usually the astronomy.</EventLabel>
           </Event>
-          <Event time={getTop(400)} color="#34B53A" style={{ height: "20rem" }}>
+          <Event
+            time={getTop(400)}
+            color={color.success.main}
+            style={{ height: "20rem" }}
+          >
             <EventTime>1230</EventTime>
             <EventLabel>Usually the astronomy.</EventLabel>
           </Event>
@@ -126,11 +130,15 @@ const Six = (props: RouteComponentProps) => {
           <DayHeader>
             <span>5</span>Wednesday
           </DayHeader>
-          <Event time={getTop(500)} color="#FFB200">
+          <Event time={getTop(500)} color={color.warning.main}>
             <EventTime>1250</EventTime>
             <EventLabel>Usually the astronomy.</EventLabel>
           </Event>
-          <Event time={getTop(900)} color="#4339F2" style={{ height: "20rem" }}>
+          <Event
+            time={getTop(900)}
+            color={color.primary.main}
+            style={{ height: "20rem" }}
+          >
             <EventTime>1330</EventTime>
             <EventLabel>Usually the astronomy.</EventLabel>
           </Event>
@@ -139,11 +147,15 @@ const Six = (props: RouteComponentProps) => {
           <DayHeader>
             <span>6</span>Thursday
           </DayHeader>
-          <Event time={getTop(0)} color="#FFB200">
+          <Event time={getTop(0)} color={color.warning.main}>
             <EventTime>1130</EventTime>
             <EventLabel>Usually the astronomy.</EventLabel>
           </Event>
-          <Event time={getTop(400)} color="#34B53A" style={{ height: "20rem" }}>
+          <Event
+            time={getTop(400)}
+            color={color.success.main}
+            style={{ height: "20rem" }}
+          >
             <EventTime>1250</EventTime>
             <EventLabel>Usually the astronomy.</EventLabel>
           </Event>
@@ -154,7 +166,7 @@ const Six = (props: RouteComponentProps) => {
           </DayHeader>
           <Event
             time={getTop(2000)}
-            color="#02A0FC"
+            color={color.info.main}
             style={{ height: "20rem" }}
           >
             <EventTime>1230</EventTime>
@@ -167,7 +179,7 @@ const Six = (props: RouteComponentProps) => {
           </DayHeader>
           <Event
             time={getTop(400)}
-            color="#FFB200  "
+            color={color.warning.main}
             style={{ height: "40rem" }}
           >
             <EventTime>1230</EventTime>
@@ -178,7 +190,11 @@ const Six = (props: RouteComponentProps) => {
           <DayHeader>
             <span>9</span>Sunday
           </DayHeader>
-          <Event time={getTop(400)} color="#4339F2" style={{ height: "25rem" }}>
+          <Event
+            time={getTop(400)}
+            color={color.primary.main}
+            style={{ height: "25rem" }}
+          >
             <EventTime>1230</EventTime>
             <EventLabel>Usually the astronomy.</EventLabel>
           </Event>

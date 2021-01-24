@@ -10,6 +10,8 @@ import KathmanduCard from "../img/kathmandu-card.jpg"
 import IndianapolisCard from "../img/indianapolis-card.jpg"
 import LouisvilleCard from "../img/louisville-card.jpg"
 
+import { color } from "../design"
+
 const CardGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -74,8 +76,16 @@ const Two = (props: RouteComponentProps) => {
         <CardGridOne>
           <Card>
             <div>
-              <Badge color="#DAD7FE" label="Deep" />
-              <Badge color="#FFE5D3" label="Minimal" />
+              <Badge
+                color="#000"
+                background={color.primary.light}
+                label="Deep"
+              />
+              <Badge
+                color="#000"
+                background={color.danger.light}
+                label="Minimal"
+              />
             </div>
             <CardTitle>Cologne</CardTitle>
             <CardText>
@@ -86,9 +96,21 @@ const Two = (props: RouteComponentProps) => {
           </Card>
           <Card>
             <div>
-              <Badge color="#FFF5CC" label="Taipei" />
-              <Badge color="#FFE5D3" label="Glasgow" />
-              <Badge color="#CCF8FE" label="Belgrade" />
+              <Badge
+                color="#000"
+                background={color.warning.light}
+                label="Taipei"
+              />
+              <Badge
+                color="#000"
+                background={color.danger.light}
+                label="Glasgow"
+              />
+              <Badge
+                color="#000"
+                background={color.info.light}
+                label="Belgrade"
+              />
             </div>
             <img
               src={MelbourneCard}
@@ -104,8 +126,16 @@ const Two = (props: RouteComponentProps) => {
           </Card>
           <Card>
             <div>
-              <Badge color="#DAD7FE" label="Lost" />
-              <Badge color="#FFE5D3" label="Designer" />
+              <Badge
+                color="#000"
+                background={color.primary.light}
+                label="Lost"
+              />
+              <Badge
+                color="#000"
+                background={color.danger.light}
+                label="Designer"
+              />
             </div>
             <CardTitle>Kuala Lumpur</CardTitle>
             <CardText>
@@ -118,7 +148,11 @@ const Two = (props: RouteComponentProps) => {
         <CardGridTwo>
           <Card>
             <div>
-              <Badge color="#E2FBD7" label="Lost" />
+              <Badge
+                color="#000"
+                background={color.success.light}
+                label="Lost"
+              />
             </div>
             <CardTitle>Bengaluru</CardTitle>
             <CardText>
@@ -129,9 +163,21 @@ const Two = (props: RouteComponentProps) => {
           </Card>
           <Card style={{ background: `url(${CasablancaCard})` }}>
             <div>
-              <Badge color="#DAD7FE" label="Lost" />
-              <Badge color="#FFE5D3" label="Toronto" />
-              <Badge color="#E2FBD7" label="Green" />
+              <Badge
+                color="#000"
+                background={color.primary.light}
+                label="Lost"
+              />
+              <Badge
+                color="#000"
+                background={color.danger.light}
+                label="Toronto"
+              />
+              <Badge
+                color="#000"
+                background={color.success.light}
+                label="Green"
+              />
             </div>
             <div style={{ color: "white" }}>
               <CardTitle>Casablanca</CardTitle>
@@ -147,9 +193,21 @@ const Two = (props: RouteComponentProps) => {
           </Card>
           <Card>
             <div>
-              <Badge color="#DAD7FE" label="Tulsa" />
-              <Badge color="#FFF5CC" label="Columbus" />
-              <Badge color="#CCF8FE" label="Bogotá" />
+              <Badge
+                color="#000"
+                background={color.primary.light}
+                label="Tulsa"
+              />
+              <Badge
+                color="#000"
+                background={color.warning.light}
+                label="Columbus"
+              />
+              <Badge
+                color="#000"
+                background={color.info.light}
+                label="Bogotá"
+              />
             </div>
             <CardTitle>Bristol</CardTitle>
             <CardText>
@@ -162,8 +220,16 @@ const Two = (props: RouteComponentProps) => {
         <CardGridThree>
           <Card>
             <div>
-              <Badge color="#DAD7FE" label="Dogs" />
-              <Badge color="#FFE5D3" label="Behance" />
+              <Badge
+                color="#000"
+                background={color.primary.light}
+                label="Dogs"
+              />
+              <Badge
+                color="#000"
+                background={color.danger.light}
+                label="Behance"
+              />
             </div>
             <img
               src={KathmanduCard}
@@ -176,9 +242,21 @@ const Two = (props: RouteComponentProps) => {
           </Card>
           <Card>
             <div>
-              <Badge color="#CCF8FE" label="Harare" />
-              <Badge color="#FFF5CC" label="Alexandria" />
-              <Badge color="#DAD7FE" label="Hubble" />
+              <Badge
+                color="#000"
+                background={color.info.light}
+                label="Harare"
+              />
+              <Badge
+                color="#000"
+                background={color.warning.light}
+                label="Alexandria"
+              />
+              <Badge
+                color="#000"
+                background={color.primary.light}
+                label="Hubble"
+              />
             </div>
             <CardTitle>Brisbane</CardTitle>
             <CardText>
@@ -189,9 +267,21 @@ const Two = (props: RouteComponentProps) => {
           </Card>
           <Card style={{ background: `url(${IndianapolisCard})` }}>
             <div>
-              <Badge color="#DAD7FE" label="Lost" />
-              <Badge color="#FFE5D3" label="Toronto" />
-              <Badge color="#E2FBD7" label="Green" />
+              <Badge
+                color="#000"
+                background={color.primary.light}
+                label="Lost"
+              />
+              <Badge
+                color="#000"
+                background={color.danger.light}
+                label="Toronto"
+              />
+              <Badge
+                color="#000"
+                background={color.success.light}
+                label="Green"
+              />
             </div>
             <div style={{ color: "white" }}>
               <CardTitle>Indianapolis</CardTitle>
@@ -209,7 +299,11 @@ const Two = (props: RouteComponentProps) => {
         <CardGridFour>
           <Card>
             <div>
-              <Badge color="#FFF5CC" label="Mens" />
+              <Badge
+                color="#000"
+                background={color.warning.light}
+                label="Mens"
+              />
             </div>
             <CardTitle>Memphis</CardTitle>
             <CardText>
@@ -220,9 +314,21 @@ const Two = (props: RouteComponentProps) => {
           </Card>
           <Card style={{ background: `url(${LouisvilleCard})` }}>
             <div>
-              <Badge color="#DAD7FE" label="Text" />
-              <Badge color="#FFE5D3" label="Khartoum" />
-              <Badge color="#E2FBD7" label="Detroit" />
+              <Badge
+                color="#000"
+                background={color.primary.light}
+                label="Text"
+              />
+              <Badge
+                color="#000"
+                background={color.danger.light}
+                label="Khartoum"
+              />
+              <Badge
+                color="#000"
+                background={color.success.light}
+                label="Detroit"
+              />
             </div>
             <div style={{ color: "white" }}>
               <CardTitle>Louisville</CardTitle>
@@ -238,8 +344,16 @@ const Two = (props: RouteComponentProps) => {
           </Card>
           <Card>
             <div>
-              <Badge color="#FFF5CC" label="Milan" />
-              <Badge color="#FFE5D3" label="Edinburg" />
+              <Badge
+                color="#000"
+                background={color.warning.light}
+                label="Milan"
+              />
+              <Badge
+                color="#000"
+                background={color.danger.light}
+                label="Edinburg"
+              />
             </div>
             <CardTitle>Helsinki</CardTitle>
             <CardText>

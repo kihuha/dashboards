@@ -6,9 +6,10 @@ import { BsThreeDots } from "react-icons/bs"
 import Layout from "../components/layout"
 import Button from "../components/button"
 import Progress from "../components/progress"
-import { PieChartTwo } from "../components/piechart"
 import Hero from "../img/seven-hero.svg"
 import SevenGraph from "../img/seven-graph.svg"
+
+import { color } from "../design"
 
 const Top = styled.div`
   display: flex;
@@ -127,7 +128,7 @@ const Seven = (props: RouteComponentProps) => {
             <CardTitle>Text</CardTitle>
             <BsThreeDots size={25} color="#eee" />
           </CardHeader>
-          <PieChartTwo percent={67} color="#FF3A29" />
+          {/* <PieChartTwo percent={67} color={color.danger.main} /> */}
           <Legend>
             <LegendGrid>
               <LegendItem>Restless</LegendItem>
@@ -164,21 +165,21 @@ const Seven = (props: RouteComponentProps) => {
           >
             <path
               fill-rule="evenodd"
-              clip-rule="evenodd"
+              clipRule="evenodd"
               d="M196 98C196 152.124 152.124 196 98 196C43.8758 196 0 152.124 0 98C0 43.8758 43.8758 0 98 0C152.124 0 196 43.8758 196 98Z"
-              fill="#FF3A29"
+              fill={color.danger.main}
             />
             <path
               fill-rule="evenodd"
-              clip-rule="evenodd"
+              clipRule="evenodd"
               d="M98 98L33.1617 171.485C12.0887 152.891 0 126.103 0 98C0 44.2387 44.2387 0 98 0C151.761 0 196 44.2387 196 98H98Z"
-              fill="#FFB200"
+              fill={color.warning.main}
             />
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M98 98L55.7975 186.447C21.7646 170.209 0 135.709 0 98C0 61.3395 20.5714 27.624 53.1716 10.8545L98 98Z"
-              fill="#4339F2"
+              fill={color.primary.main}
             />
           </svg>
 
@@ -208,25 +209,25 @@ const Seven = (props: RouteComponentProps) => {
             <Progress
               label="Instagram"
               count="65,376"
-              color="#FFB200"
+              color={color.warning.main}
               width={10}
             />
             <Progress
               label="Facebook"
               count="12,109"
-              color="#4339F2"
+              color={color.primary.main}
               width={40}
             />
             <Progress
               label="Twitter"
               count="132,645"
-              color="#02A0FC"
+              color={color.info.main}
               width={30}
             />
             <Progress
               label="Behance"
               count="132,645"
-              color="#FF3A29"
+              color={color.danger.main}
               width={30}
             />
           </div>

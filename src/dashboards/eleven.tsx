@@ -16,6 +16,8 @@ import Four from "../img/eleven/four.png"
 import Five from "../img/eleven/five.png"
 import Six from "../img/eleven/six.png"
 
+import { color } from "../design"
+
 const Top = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -39,7 +41,7 @@ const CardBody = styled.p`
 `
 const CardAmount = styled.h2`
   margin-top: 2rem;
-  color: #ff3a29;
+  color: ${color.danger.main};
   font-size: 2.2rem;
 `
 
@@ -67,13 +69,13 @@ const AvatarPlus = styled.div`
   width: 4rem;
   height: 4rem;
   border-radius: 100%;
-  background: #4339f2;
+  background: ${color.primary.main};
   color: white;
 `
 
 const CardIcon = styled(AvatarPlus)`
   background: #ffe5d3;
-  color: #ff3a29;
+  color: ${color.danger.main};
 `
 
 const Bottom = styled.div`
@@ -136,7 +138,7 @@ interface IContent {
   body: string
   amount: number
   badges: {
-    color: string
+    background: string
     label: string
   }[]
   images: any[]
@@ -223,21 +225,21 @@ const Eleven = (props: RouteComponentProps) => {
       parent
         .append("path")
         .attr("fill", "none")
-        .attr("stroke", "#FF3A29")
+        .attr("stroke", color.danger.main)
         .attr("stroke-width", 4)
         .attr("d", lineGenerator(data[0]))
 
       parent
         .append("path")
         .attr("fill", "none")
-        .attr("stroke", "#4339F2")
+        .attr("stroke", color.primary.main)
         .attr("stroke-width", 4)
         .attr("d", lineGenerator(data[1]))
 
       parent
         .append("path")
         .attr("fill", "none")
-        .attr("stroke", "#34B53A")
+        .attr("stroke", color.success.main)
         .attr("stroke-width", 4)
         .attr("d", lineGenerator(data[2]))
 
@@ -303,15 +305,15 @@ const Eleven = (props: RouteComponentProps) => {
       badges: [
         {
           label: "Designer",
-          color: "#DAD7FE",
+          background: color.primary.light,
         },
         {
           label: "Lost",
-          color: "#FFE5D3",
+          background: color.danger.light,
         },
         {
           label: "Hubble",
-          color: "#E2FBD7",
+          background: color.success.light,
         },
       ],
       images: [One, Two, Three],
@@ -324,11 +326,11 @@ const Eleven = (props: RouteComponentProps) => {
       badges: [
         {
           label: "Project",
-          color: "#FFF5CC",
+          background: color.warning.light,
         },
         {
           label: "Digital",
-          color: "#CCF8FE",
+          background: color.info.light,
         },
       ],
       images: [Four],
@@ -341,11 +343,11 @@ const Eleven = (props: RouteComponentProps) => {
       badges: [
         {
           label: "Designer",
-          color: "#DAD7FE",
+          background: color.primary.light,
         },
         {
           label: "Lost",
-          color: "#FFE5D3",
+          background: color.danger.light,
         },
       ],
       images: [Five, Six],
@@ -358,7 +360,11 @@ const Eleven = (props: RouteComponentProps) => {
           <Card key={index}>
             <CardHeader>
               {content.badges.map((badge) => (
-                <Badge color={badge.color} label={badge.label} />
+                <Badge
+                  color="#000"
+                  background={badge.background}
+                  label={badge.label}
+                />
               ))}
             </CardHeader>
 
@@ -389,7 +395,7 @@ const Eleven = (props: RouteComponentProps) => {
                       fill-rule="evenodd"
                       clip-rule="evenodd"
                       d="M10.9409 13.667C10.8851 13.667 10.8276 13.6645 10.7701 13.6586C10.0367 13.5861 9.46175 13.0686 9.30341 12.3395L7.06758 2.01281L4.76508 7.33115C4.63258 7.63615 4.33175 7.83365 4.00008 7.83365H1.50008C1.03925 7.83365 0.666748 7.46031 0.666748 7.00031C0.666748 6.53948 1.03925 6.16698 1.50008 6.16698H3.45341L5.54175 1.34281C5.83758 0.662813 6.48925 0.26698 7.23008 0.341147C7.96341 0.413647 8.53841 0.931147 8.69675 1.66031L10.9326 11.987L13.2351 6.66865C13.3676 6.36365 13.6676 6.16698 14.0001 6.16698H16.5001C16.9609 6.16698 17.3334 6.53948 17.3334 7.00031C17.3334 7.46031 16.9609 7.83365 16.5001 7.83365H14.5467L12.4584 12.657C12.1859 13.2845 11.6017 13.667 10.9409 13.667"
-                      fill="#FF3A29"
+                      fill={color.danger.main}
                     />
                   </svg>
                 </CardIcon>
@@ -420,15 +426,15 @@ const Eleven = (props: RouteComponentProps) => {
           <Right>
             <Legend>
               <LegendItem>
-                <LegendIcon color="#4339F2"></LegendIcon>
+                <LegendIcon color={color.primary.main}></LegendIcon>
                 Restless
               </LegendItem>
               <LegendItem>
-                <LegendIcon color="#FF3A29"></LegendIcon>
+                <LegendIcon color={color.danger.main}></LegendIcon>
                 Awake
               </LegendItem>
               <LegendItem>
-                <LegendIcon color="#FFB200"></LegendIcon>
+                <LegendIcon color={color.warning.main}></LegendIcon>
                 Deep
               </LegendItem>
             </Legend>

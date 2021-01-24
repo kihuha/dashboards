@@ -12,6 +12,8 @@ import RowTwo from "../img/twelve-two.png"
 import RowThree from "../img/twelve-three.png"
 import RowFour from "../img/twelve-four.png"
 
+import { color } from "../design"
+
 const CardGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -93,7 +95,7 @@ const Twelve = (props: RouteComponentProps) => {
   return (
     <Layout>
       <CardGrid>
-        <Card style={{ background: "#4339F2" }}>
+        <Card style={{ background: color.primary.main }}>
           <CardHeader>
             <Title>CraftworkBank</Title>
             <img src={Wifi} alt="" />
@@ -107,7 +109,7 @@ const Twelve = (props: RouteComponentProps) => {
             </CardFooter>
           </CardDetails>
         </Card>
-        <Card style={{ background: "#FF3A29" }}>
+        <Card style={{ background: color.danger.main }}>
           <CardHeader>
             <Title>CraftworkBank</Title>
             <img src={Wifi} alt="" />
@@ -121,7 +123,7 @@ const Twelve = (props: RouteComponentProps) => {
             </CardFooter>
           </CardDetails>
         </Card>
-        <Card style={{ background: "#34B53A" }}>
+        <Card style={{ background: color.success.main }}>
           <CardHeader>
             <Title>CraftworkBank</Title>
             <img src={Wifi} alt="" />
@@ -154,7 +156,7 @@ const Twelve = (props: RouteComponentProps) => {
             <p>Finished Projects</p>
           </div>
           <div>
-            <h2 style={{ color: "#4339F2" }}>$390.99</h2>
+            <h2 style={{ color: color.primary.main }}>$390.99</h2>
             <p>Total Profit</p>
           </div>
           <div>
@@ -180,7 +182,7 @@ const Twelve = (props: RouteComponentProps) => {
             <p>Finished Projects</p>
           </div>
           <div>
-            <h2 style={{ color: "#4339F2" }}>$23.50</h2>
+            <h2 style={{ color: color.primary.main }}>$23.50</h2>
             <p>Total Profit</p>
           </div>
           <div>
@@ -206,7 +208,7 @@ const Twelve = (props: RouteComponentProps) => {
             <p>Finished Projects</p>
           </div>
           <div>
-            <h2 style={{ color: "#4339F2" }}>$788.00</h2>
+            <h2 style={{ color: color.primary.main }}>$788.00</h2>
             <p>Total Profit</p>
           </div>
           <div>
@@ -232,7 +234,7 @@ const Twelve = (props: RouteComponentProps) => {
             <p>Finished Projects</p>
           </div>
           <div>
-            <h2 style={{ color: "#4339F2" }}>$613.65</h2>
+            <h2 style={{ color: color.primary.main }}>$613.65</h2>
             <p>Total Profit</p>
           </div>
           <div>
