@@ -20,6 +20,8 @@ import Thirteen from "../img/landing/Dashboard 13.png"
 import Fourteen from "../img/landing/Dashboard 14.png"
 import Fifteen from "../img/landing/Dashboard 15.png"
 
+import MobileHeader from "../components/mobileHeader"
+
 const MODIFIER_CONFIG = {
   warning: () => `
         background: white;
@@ -37,10 +39,14 @@ const LandingHeader = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 40%;
+  width: 100%;
   margin: 0 auto;
   padding: 5rem 0;
   text-align: center;
+
+  @media (min-width: 1000px) {
+    width: 40%;
+  }
 `
 const LandingTitle = styled.h1`
   font-size: 5rem;
@@ -121,6 +127,7 @@ const LandingWrapper = (props: RouteComponentProps) => {
 
   return (
     <>
+      <MobileHeader />
       <Landing>
         <LandingHeader>
           <LandingTitle>Dashboard Collection</LandingTitle>

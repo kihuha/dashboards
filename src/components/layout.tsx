@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Logo from "../img/craftwork-logo.svg"
+import MobileHeader from "./mobileHeader"
 
 // ICONS
 import User from "../img/user.svg"
@@ -147,66 +148,69 @@ const MainArea = styled.div`
 `
 
 const Layout = (props: { children: JSX.Element | JSX.Element[] }) => (
-  <Wrapper>
-    <Sidebar>
-      <IconGrid>
-        <img src={Logo} alt="craftwork logo" />
-        <Separator />
-        <IconWrapper>
-          <img src={User} alt="User icon" />
-        </IconWrapper>
-        <IconWrapper>
-          <img src={Download} alt="Download icon" />
-        </IconWrapper>
-        <IconWrapper>
-          <img src={Wave} alt="wave icon" />
-        </IconWrapper>
-        <IconWrapper>
-          <img src={Image} alt="icon" />
-        </IconWrapper>
-        <IconWrapper>
-          <img src={Calendar} alt="calendar icon" />
-        </IconWrapper>
-        <IconWrapper>
-          <img src={Flame} alt="flame icon" />
-        </IconWrapper>
-        <IconWrapper>
-          <img src={Piechart} alt="piechart icon" />
-        </IconWrapper>
-      </IconGrid>
+  <>
+    <MobileHeader />
+    <Wrapper>
+      <Sidebar>
+        <IconGrid>
+          <img src={Logo} alt="craftwork logo" />
+          <Separator />
+          <IconWrapper>
+            <img src={User} alt="User icon" />
+          </IconWrapper>
+          <IconWrapper>
+            <img src={Download} alt="Download icon" />
+          </IconWrapper>
+          <IconWrapper>
+            <img src={Wave} alt="wave icon" />
+          </IconWrapper>
+          <IconWrapper>
+            <img src={Image} alt="icon" />
+          </IconWrapper>
+          <IconWrapper>
+            <img src={Calendar} alt="calendar icon" />
+          </IconWrapper>
+          <IconWrapper>
+            <img src={Flame} alt="flame icon" />
+          </IconWrapper>
+          <IconWrapper>
+            <img src={Piechart} alt="piechart icon" />
+          </IconWrapper>
+        </IconGrid>
 
-      <IconWrapper>
-        <img src={Settings} alt="settings icon" />
-      </IconWrapper>
-    </Sidebar>
-    <Content>
-      <Navbar>
-        <form>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <img src={SearchIcon} alt="search icon" />
-            <SearchInput
-              type="search"
-              name="search"
-              id="searchID"
-              placeholder="Search"
-            />
-          </div>
-        </form>
-        <AvatarGrid>
-          <Avatar style={{ background: `url(${AvatarOne})` }}>
-            <AvatarBadge />
-          </Avatar>
-          <Avatar style={{ background: `url(${AvatarTwo})` }} />
-          <Avatar style={{ background: `url(${AvatarThree})` }} />
-          <Avatar style={{ background: color.primary.main, color: "white" }}>
-            <BsPlus size={25} />
-          </Avatar>
-        </AvatarGrid>
-      </Navbar>
+        <IconWrapper>
+          <img src={Settings} alt="settings icon" />
+        </IconWrapper>
+      </Sidebar>
+      <Content>
+        <Navbar>
+          <form>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <img src={SearchIcon} alt="search icon" />
+              <SearchInput
+                type="search"
+                name="search"
+                id="searchID"
+                placeholder="Search"
+              />
+            </div>
+          </form>
+          <AvatarGrid>
+            <Avatar style={{ background: `url(${AvatarOne})` }}>
+              <AvatarBadge />
+            </Avatar>
+            <Avatar style={{ background: `url(${AvatarTwo})` }} />
+            <Avatar style={{ background: `url(${AvatarThree})` }} />
+            <Avatar style={{ background: color.primary.main, color: "white" }}>
+              <BsPlus size={25} />
+            </Avatar>
+          </AvatarGrid>
+        </Navbar>
 
-      <MainArea>{props.children}</MainArea>
-    </Content>
-  </Wrapper>
+        <MainArea>{props.children}</MainArea>
+      </Content>
+    </Wrapper>
+  </>
 )
 
 export default Layout
