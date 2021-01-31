@@ -1,5 +1,4 @@
 import styled from "styled-components"
-
 import Logo from "../img/craftwork-logo.svg"
 
 const Header = styled.header`

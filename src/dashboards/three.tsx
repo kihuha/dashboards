@@ -11,12 +11,17 @@ import { color } from "../design"
 
 const Header = styled.header`
   display: flex;
+  flex-direction: column;
   align-items: center;
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
+  }
 `
 
 const Date = styled.div`
   display: flex;
-  margin: 0 auto;
+  margin: 1rem auto 0 auto;
 `
 
 const DateText = styled.p`
@@ -25,16 +30,32 @@ const DateText = styled.p`
 `
 
 const Calendar = styled.section`
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  overflow-x: scroll;
 `
 
 const CalendarHeader = styled.div`
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, 14rem);
   margin-top: 3.5rem;
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(7, 1fr);
+  }
 `
+
+const CalendarContent = styled.div`
+  display: grid;
+  grid-template-columns: repeat(7, 14rem);
+  grid-template-rows: 1fr 1fr;
+  margin-top: 2rem;
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(7, 1fr);
+  }
+`
+
 const CalendarHeaderItem = styled.div`
   font-size: 2rem;
   color: rgba(0, 0, 0, 0.4);
@@ -56,10 +77,13 @@ const CalendarDay = styled.p`
 `
 
 const CalendarEvent = styled(Badge)`
-  position: absolute;
   font-size: 1.4rem;
   max-width: 30rem;
   z-index: 1000;
+
+  @media only screen and (min-width: 1200px) {
+    position: absolute;
+  }
 `
 
 const Three = (props: RouteComponentProps) => {
@@ -145,7 +169,7 @@ const Three = (props: RouteComponentProps) => {
   return (
     <Layout>
       <Header>
-        <div>
+        <div style={{ marginTop: "1rem" }}>
           <Button
             style={{
               marginRight: "1rem",
@@ -165,34 +189,37 @@ const Three = (props: RouteComponentProps) => {
           <BsArrowRightShort size={25} />
         </Date>
       </Header>
-      <CalendarHeader>
-        <CalendarHeaderItem>Mon</CalendarHeaderItem>
-        <CalendarHeaderItem>Tue</CalendarHeaderItem>
-        <CalendarHeaderItem>Wed</CalendarHeaderItem>
-        <CalendarHeaderItem>Thu</CalendarHeaderItem>
-        <CalendarHeaderItem>Fri</CalendarHeaderItem>
-        <CalendarHeaderItem>Sat</CalendarHeaderItem>
-        <CalendarHeaderItem>Sun</CalendarHeaderItem>
-      </CalendarHeader>
+
       <Calendar>
-        {days.map((item: any, index: number) => (
-          <CalendarItem key={index}>
-            <CalendarDay>{item.date}</CalendarDay>
-            {item.events.map(
-              (
-                event: { color: string; background: string; label: string },
-                index: number
-              ) => (
-                <CalendarEvent
-                  key={index}
-                  label={event.label}
-                  color={event.color}
-                  background={event.background}
-                />
-              )
-            )}
-          </CalendarItem>
-        ))}
+        <CalendarHeader>
+          <CalendarHeaderItem>Mon</CalendarHeaderItem>
+          <CalendarHeaderItem>Tue</CalendarHeaderItem>
+          <CalendarHeaderItem>Wed</CalendarHeaderItem>
+          <CalendarHeaderItem>Thu</CalendarHeaderItem>
+          <CalendarHeaderItem>Fri</CalendarHeaderItem>
+          <CalendarHeaderItem>Sat</CalendarHeaderItem>
+          <CalendarHeaderItem>Sun</CalendarHeaderItem>
+        </CalendarHeader>
+        <CalendarContent>
+          {days.map((item: any, index: number) => (
+            <CalendarItem key={index}>
+              <CalendarDay>{item.date}</CalendarDay>
+              {item.events.map(
+                (
+                  event: { color: string; background: string; label: string },
+                  index: number
+                ) => (
+                  <CalendarEvent
+                    key={index}
+                    label={event.label}
+                    color={event.color}
+                    background={event.background}
+                  />
+                )
+              )}
+            </CalendarItem>
+          ))}
+        </CalendarContent>
       </Calendar>
     </Layout>
   )

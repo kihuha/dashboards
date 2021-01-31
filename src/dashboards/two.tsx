@@ -14,15 +14,26 @@ import { color } from "../design"
 
 const CardGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   column-gap: 2rem;
   width: 100%;
   padding-bottom: 2rem;
+
+  @media only screen and (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
 `
 const CardGridOne = styled.div`
   display: grid;
   grid-template-rows: 20rem 34rem 25rem;
   row-gap: 2rem;
+  margin-top: 2rem;
+
+  @media only screen and (min-width: 1200px) {
+    margin-top: 0;
+  }
 `
 const CardGridTwo = styled.div`
   display: grid;
@@ -45,9 +56,14 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 3rem 2rem;
+  padding: 1.5rem 1rem;
   background: white;
-  border-radius: 2rem;
+  border-radius: 1rem;
+
+  @media only screen and (min-width: 1200px) {
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+  }
 `
 
 const CardTitle = styled.h3`
@@ -115,7 +131,7 @@ const Two = (props: RouteComponentProps) => {
             <img
               src={MelbourneCard}
               alt="forest"
-              style={{ marginTop: "1.5rem" }}
+              style={{ marginTop: "1.5rem", width: "100%" }}
             />
             <CardTitle>Melbourne</CardTitle>
             <CardText>
@@ -234,7 +250,7 @@ const Two = (props: RouteComponentProps) => {
             <img
               src={KathmanduCard}
               alt="forest"
-              style={{ marginTop: "1.5rem" }}
+              style={{ width: "100%", marginTop: "1.5rem" }}
             />
             <CardTitle>Kathmandu</CardTitle>
             <CardText>When you enter into any new area</CardText>
@@ -312,7 +328,12 @@ const Two = (props: RouteComponentProps) => {
             </CardText>
             <CardBtnLink href="#">Detalies</CardBtnLink>
           </Card>
-          <Card style={{ background: `url(${LouisvilleCard})` }}>
+          <Card
+            style={{
+              background: `url(${LouisvilleCard})`,
+              backgroundRepeat: "no-repeat",
+            }}
+          >
             <div>
               <Badge
                 color="#000"
