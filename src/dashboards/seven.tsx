@@ -19,30 +19,41 @@ const Top = styled.div`
   text-align: center;
 `
 const HeroTitle = styled.h2`
-  width: 72rem;
+  width: 100%;
+  max-width: 72rem;
   margin: 2rem 0 1rem 0;
   font-size: 4rem;
 `
 const HeroText = styled.p`
-  width: 45.5rem;
+  width: 100%;
+  max-width: 45.5rem;
   margin-bottom: 4rem;
   font-size: 1.4rem;
 `
 
 const Bottom = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
   column-gap: 4rem;
   margin-top: 7rem;
   margin-bottom: 4rem;
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `
 const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 2rem;
   padding: 2rem;
   background: white;
+
+  @media (min-width: 1200px) {
+    margin-bottom: 0;
+  }
 `
 
 const CardTitle = styled.h3`

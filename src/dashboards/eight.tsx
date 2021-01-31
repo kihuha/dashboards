@@ -25,9 +25,11 @@ import AvatarNine from "../img/eight-avatar-nine.png"
 import { color } from "../design"
 
 const Top = styled.section`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  column-gap: 2rem;
+  @media (min-width: 1200px) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 2rem;
+  }
 `
 
 const TopHeader = styled.div`
@@ -41,15 +43,23 @@ const TopHeaderTitle = styled.h3`
   font-size: 2rem;
 `
 
-const Left = styled.div``
-const Right = styled.div``
+const Left = styled.div`
+  margin-top: 2rem;
+`
+const Right = styled.div`
+  margin-top: 2rem;
+`
 
 const Bottom = styled.section`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   column-gap: 2rem;
   align-items: center;
   margin-top: 3rem;
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `
 
 const Card = styled.div`
@@ -135,6 +145,9 @@ const Eight = (props: RouteComponentProps) => {
               viewBox="0 0 390 243"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              style={{
+                width: "100%",
+              }}
             >
               <path
                 d="M1 128.619C16.9631 143.34 18.8058 226.917 30.4722 234.658C42.1386 242.4 47.2684 97.6796 60.5768 94.3602C73.8853 91.0409 78.723 226.513 90.5678 219.669C102.413 212.826 104.306 21.9995 119.925 12.3478C135.544 2.69603 135.948 142.6 150.015 145.329C164.082 148.057 163.539 74.726 178.061 74.726C192.583 74.726 193.886 216.853 209.233 214.337C224.581 211.821 222.876 47.4497 239.354 47.4497C255.832 47.4497 259.692 234.658 274.179 241.542C288.666 248.425 284.687 175.88 299.578 151.554C314.468 127.227 317.153 6.32208 331.09 2.0916C345.026 -2.13887 346.64 141.517 358.652 151.554C370.664 161.59 377.18 35.9674 389 35.9674"

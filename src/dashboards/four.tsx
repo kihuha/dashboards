@@ -15,8 +15,13 @@ import { color } from "../design"
 
 const Content = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding-bottom: 2rem;
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
+  }
 `
 
 const ContentChart = styled.div`
@@ -25,6 +30,11 @@ const ContentChart = styled.div`
   padding: 3.5rem 3rem;
   background: white;
   border-radius: 1rem;
+  margin-top: 2rem;
+
+  @media (min-width: 1200px) {
+    margin-top: 0;
+  }
 `
 
 const Chart = styled.div`
@@ -39,23 +49,43 @@ const ContentCards = styled.div`
   display: grid;
   grid-template-rows: repeat(5, 1fr);
   row-gap: 2rem;
+  margin-top: 2rem;
+
+  @media (min-width: 1200px) {
+    margin-top: 0;
+  }
 `
 
 const Card = styled.div`
   display: flex;
-  padding: 2rem 3rem;
+  padding: 1rem 1.5rem;
   background: white;
   border-radius: 1rem;
+
+  @media (min-width: 1200px) {
+    padding: 2rem 3rem;
+  }
 `
 
 const CardIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 9rem;
-  height: 9rem;
+  width: 4.5rem;
+  height: 4.5rem;
   margin-right: 1.5rem;
   border-radius: 100%;
+  padding: 1rem;
+
+  img {
+    width: 100%;
+  }
+
+  @media (min-width: 1200px) {
+    width: 9rem;
+    height: 9rem;
+    padding: 0;
+  }
 `
 
 const CardTitle = styled.h3`
@@ -219,46 +249,7 @@ const FourWrapper = (props: RouteComponentProps) => {
               <LegendItem>Deep</LegendItem>
             </LegendGrid>
           </Legend>
-          <Chart>
-            <Scale>
-              <p>500</p>
-              <p>400</p>
-              <p>300</p>
-              <p>200</p>
-              <p>100</p>
-              <p>0</p>
-            </Scale>
-            {data.map(
-              (item: { total: number; values: number[] }, index: number) => (
-                <HorizontalProgress
-                  key={index}
-                  style={{ height: `${item.total}rem` }}
-                >
-                  <HorizontalProgressIcon
-                    style={{ height: `${item.values[0]}rem` }}
-                  ></HorizontalProgressIcon>
-                  <HorizontalProgressIcon
-                    style={{ height: `${item.values[1]}rem` }}
-                  ></HorizontalProgressIcon>
-                  <HorizontalProgressIcon
-                    style={{ height: `${item.values[2]}rem` }}
-                  ></HorizontalProgressIcon>
-                  <p
-                    style={{
-                      position: "absolute",
-                      left: "50%",
-                      bottom: "-2rem",
-                      transform: "translate(-50%, 50%)",
-                      fontSize: "1.4rem",
-                      color: "rgba(0,0,0,0.4)",
-                    }}
-                  >
-                    {index}
-                  </p>
-                </HorizontalProgress>
-              )
-            )}
-          </Chart>
+          <Chart>chart here</Chart>
         </ContentChart>
         <ContentCards>
           <Card>

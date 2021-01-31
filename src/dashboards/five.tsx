@@ -15,7 +15,12 @@ const Content = styled.section`
 `
 const Top = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
+  }
 `
 
 const GraphWrapper = styled.div`
@@ -23,9 +28,21 @@ const GraphWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  padding: 3rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
   background: white;
   border-radius: 1rem;
+
+  &:nth-child(2) {
+    @media (min-width: 1200px) {
+      margin-left: 2rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    margin-top: 0;
+    padding: 3rem;
+  }
 `
 
 const Bottom = styled.div`
@@ -146,7 +163,7 @@ const BarWrapper = styled.div`
   justify-content: space-between;
 `
 const Bar = styled.div<any>`
-  width: 1.8rem;
+  width: 1rem;
   border-radius: 1rem;
   background: ${(props: any) =>
     props.color ? props.color : color.primary.light};
@@ -154,6 +171,10 @@ const Bar = styled.div<any>`
 
   &:nth-of-type(6) {
     background: ${color.primary.main};
+  }
+
+  @media (min-width: 1200px) {
+    width: 1.8rem;
   }
 `
 
@@ -221,7 +242,7 @@ const Five = (props: RouteComponentProps) => {
               <p>11</p>
             </BottomScale>
           </GraphWrapper>
-          <GraphWrapper style={{ marginLeft: "2rem" }}>
+          <GraphWrapper>
             <Legend>
               <GraphTitle>
                 Text
