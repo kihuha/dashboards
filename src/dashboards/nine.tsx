@@ -12,15 +12,25 @@ import { generateDoughnut, generateArc } from "../chartUtils"
 
 const Top = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   column-gap: 2rem;
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+  }
 `
 const Card = styled.div`
   display: block;
+  margin-top: 2rem;
   padding: 2rem;
   background: white;
   min-height: 25rem;
   border-radius: 5px;
+
+  @media (min-width: 1200px) {
+    margin-top: 0;
+  }
 `
 const CardHeader = styled.div`
   display: flex;
@@ -57,6 +67,7 @@ const Legend = styled.div`
 const LegendItem = styled.div`
   display: flex;
   font-size: 1.4rem;
+
   &:not(:last-child) {
     margin-right: 2rem;
   }
@@ -64,10 +75,15 @@ const LegendItem = styled.div`
 
 const Bottom = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding-top: 2rem;
   margin-bottom: 2rem;
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
+  }
 `
 const Left = styled.div`
   display: block;
@@ -80,6 +96,17 @@ const Right = styled.div`
   flex-basis: 49%;
   padding: 2rem;
   background: white;
+`
+
+const DoughnutGrid = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 4rem 0 3.5rem 0;
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
+  }
 `
 
 const Nine = (props: RouteComponentProps) => {
@@ -512,13 +539,7 @@ const Nine = (props: RouteComponentProps) => {
               Twitter
             </LegendItem>
           </Legend>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              margin: "4rem 0 3.5rem 0",
-            }}
-          >
+          <DoughnutGrid>
             <div>
               {generateDoughnut("12.8rem", "12.8rem", 67, color.success)}
             </div>
@@ -529,7 +550,7 @@ const Nine = (props: RouteComponentProps) => {
               {generateDoughnut("12.8rem", "12.8rem", 15, color.danger)}
             </div>
             <div>{generateDoughnut("12.8rem", "12.8rem", 67, color.info)}</div>
-          </div>
+          </DoughnutGrid>
 
           <p style={{ fontSize: "1.4rem", color: "rgba(0,0,0,0.4)" }}>
             Every large design company whether it’s a multi-national branding
