@@ -1,5 +1,7 @@
+import { useEffect, useRef } from "react"
 import { RouteComponentProps } from "@reach/router"
 import styled from "styled-components"
+import * as d3 from "d3"
 import { hexToRgbA } from "../utils"
 
 // COMPONENTS
@@ -190,6 +192,7 @@ const Scale = styled.div<any>`
 `
 
 const FourWrapper = (props: RouteComponentProps) => {
+  const chartRef = useRef<null | HTMLDivElement>(null)
   const data = [
     {
       total: 42.4,
@@ -237,6 +240,29 @@ const FourWrapper = (props: RouteComponentProps) => {
     },
   ]
 
+  useEffect(() => {
+    if (chartRef.current) {
+      const height = chartRef.current.offsetHeight
+      const width = chartRef.current.offsetWidth
+      const barWidth = 5
+      const yScale = d3.scaleLinear().domain([0, 70]).range([0, height])
+      const xScale = d3.scaleLinear().domain([1, data.length]).range([0, width])
+      const parent = d3.select(chartRef.current).append("svg")
+
+      parent
+        .attr("height", "100%")
+        .selectAll("rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr("width", 10)
+        .attr("height", (d) => yScale(d.total))
+        .attr("test", (d, i) => xScale(i + 1))
+        .attr("y", (d) => height - yScale(d.total))
+        .style("fill", "red")
+    }
+  }, [])
+
   return (
     <Layout>
       <Content>
@@ -249,7 +275,9 @@ const FourWrapper = (props: RouteComponentProps) => {
               <LegendItem>Deep</LegendItem>
             </LegendGrid>
           </Legend>
-          <Chart>chart here</Chart>
+          <Chart>
+            <div ref={chartRef} style={{ height: "40vh" }}></div>
+          </Chart>
         </ContentChart>
         <ContentCards>
           <Card>

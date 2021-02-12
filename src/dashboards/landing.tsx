@@ -44,6 +44,10 @@ const LandingHeader = styled.div`
   padding: 5rem 0;
   text-align: center;
 
+  @media (min-width: 500px) {
+    width: 80%;
+  }
+
   @media (min-width: 1000px) {
     width: 40%;
   }
@@ -74,11 +78,24 @@ const Content = styled.div`
 `
 
 const Card = styled.div`
-  margin-bottom: 4rem;
-  flex-basis: 30%;
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto 4rem auto;
   background: white;
   border: solid 5px white;
   border-radius: 1rem;
+
+  @media (min-width: 800px) {
+    max-width: 40rem;
+  }
+
+  @media (min-width: 1000px) {
+    max-width: 48rem;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 45rem;
+  }
 `
 
 const CardImg = styled.img`

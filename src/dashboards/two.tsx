@@ -1,3 +1,4 @@
+import { useRef } from "react"
 import styled from "styled-components"
 import { RouteComponentProps } from "@reach/router"
 import Layout from "../components/layout"
@@ -13,43 +14,51 @@ import LouisvilleCard from "../img/louisville-card.jpg"
 import { color } from "../design"
 
 const CardGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  column-gap: 2rem;
-  width: 100%;
-  padding-bottom: 2rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 2rem 0;
 
-  @media only screen and (min-width: 1200px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
+  @media (min-width: 600px) {
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  & > div {
+    width: 100%;
+    max-width: 35rem;
+    margin: 0 auto 1rem auto;
+
+    @media (min-width: 600px) {
+      max-width: calc(30rem - 0.5rem);
+    }
+
+    @media (min-width: 768px) {
+      max-width: 36rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 28rem;
+    }
+
+    @media (min-width: 1400px) {
+      max-width: 32.6rem;
+    }
   }
 `
 const CardGridOne = styled.div`
-  display: grid;
-  grid-template-rows: 20rem 34rem 25rem;
-  row-gap: 2rem;
-  margin-top: 2rem;
-
-  @media only screen and (min-width: 1200px) {
-    margin-top: 0;
-  }
+  /* border: solid 2px blue; */
 `
 const CardGridTwo = styled.div`
-  display: grid;
-  grid-template-rows: 24rem 34rem 20rem;
-  row-gap: 2rem;
+  /* border: solid 2px blue; */
 `
 const CardGridThree = styled.div`
-  display: grid;
-  grid-template-rows: 32rem 20rem 26rem;
-  row-gap: 2rem;
+  /* border: solid 2px blue; */
 `
 
 const CardGridFour = styled.div`
-  display: grid;
-  grid-template-rows: 20rem 38rem 20rem;
-  row-gap: 2rem;
+  /* border: solid 2px blue; */
 `
 
 const Card = styled.div`
@@ -59,6 +68,10 @@ const Card = styled.div`
   padding: 1.5rem 1rem;
   background: white;
   border-radius: 1rem;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
 
   @media only screen and (min-width: 1200px) {
     padding: 3rem 2rem;
@@ -86,11 +99,22 @@ const CardBtnLink = styled.a`
 `
 
 const Two = (props: RouteComponentProps) => {
+  // const cardOne = `useRef(null)
+  // const cardTwo = useRef(null)
+  // const cardThree = useRef(null)
+  // const cardFour = useRef(null)`
+
+  // CARD COLUMN ONE
+  const cardOneHeight = [208, 340, 244]
+  const cardTwoHeight = [244, 340, 208]
+  const cardThreeHeight = [320, 208, 264]
+  const cardFourHeight = [208, 376, 208]
+
   return (
     <Layout>
       <CardGrid>
         <CardGridOne>
-          <Card>
+          <Card style={{ height: `${cardOneHeight[0]}px` }}>
             <div>
               <Badge
                 color="#000"
@@ -110,7 +134,7 @@ const Two = (props: RouteComponentProps) => {
             </CardText>
             <CardBtnLink href="#">Detalies</CardBtnLink>
           </Card>
-          <Card>
+          <Card style={{ height: `${cardOneHeight[1]}px` }}>
             <div>
               <Badge
                 color="#000"
@@ -140,7 +164,7 @@ const Two = (props: RouteComponentProps) => {
             </CardText>
             <CardBtnLink href="#">Detalies</CardBtnLink>
           </Card>
-          <Card>
+          <Card style={{ height: `${cardOneHeight[2]}px` }}>
             <div>
               <Badge
                 color="#000"
@@ -162,7 +186,7 @@ const Two = (props: RouteComponentProps) => {
           </Card>
         </CardGridOne>
         <CardGridTwo>
-          <Card>
+          <Card style={{ height: `${cardTwoHeight[0]}px` }}>
             <div>
               <Badge
                 color="#000"
@@ -177,7 +201,14 @@ const Two = (props: RouteComponentProps) => {
             </CardText>
             <CardBtnLink href="#">Detalies</CardBtnLink>
           </Card>
-          <Card style={{ background: `url(${CasablancaCard})` }}>
+          <Card
+            style={{
+              background: `url(${CasablancaCard})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              height: `${cardTwoHeight[1]}px`,
+            }}
+          >
             <div>
               <Badge
                 color="#000"
@@ -207,7 +238,7 @@ const Two = (props: RouteComponentProps) => {
               </p>
             </div>
           </Card>
-          <Card>
+          <Card style={{ height: `${cardTwoHeight[2]}px` }}>
             <div>
               <Badge
                 color="#000"
@@ -233,8 +264,9 @@ const Two = (props: RouteComponentProps) => {
             <CardBtnLink href="#">Detalies</CardBtnLink>
           </Card>
         </CardGridTwo>
+
         <CardGridThree>
-          <Card>
+          <Card style={{ height: `${cardThreeHeight[0]}px` }}>
             <div>
               <Badge
                 color="#000"
@@ -256,7 +288,7 @@ const Two = (props: RouteComponentProps) => {
             <CardText>When you enter into any new area</CardText>
             <CardBtnLink href="#">Detalies</CardBtnLink>
           </Card>
-          <Card>
+          <Card style={{ height: `${cardThreeHeight[1]}px` }}>
             <div>
               <Badge
                 color="#000"
@@ -281,7 +313,14 @@ const Two = (props: RouteComponentProps) => {
             </CardText>
             <CardBtnLink href="#">Detalies</CardBtnLink>
           </Card>
-          <Card style={{ background: `url(${IndianapolisCard})` }}>
+          <Card
+            style={{
+              background: `url(${IndianapolisCard})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              height: `${cardThreeHeight[2]}px`,
+            }}
+          >
             <div>
               <Badge
                 color="#000"
@@ -313,7 +352,7 @@ const Two = (props: RouteComponentProps) => {
           </Card>
         </CardGridThree>
         <CardGridFour>
-          <Card>
+          <Card style={{ height: `${cardFourHeight[0]}px` }}>
             <div>
               <Badge
                 color="#000"
@@ -332,6 +371,8 @@ const Two = (props: RouteComponentProps) => {
             style={{
               background: `url(${LouisvilleCard})`,
               backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              height: `${cardFourHeight[1]}px`,
             }}
           >
             <div>
@@ -363,7 +404,7 @@ const Two = (props: RouteComponentProps) => {
               </p>
             </div>
           </Card>
-          <Card>
+          <Card style={{ height: `${cardFourHeight[2]}px` }}>
             <div>
               <Badge
                 color="#000"
