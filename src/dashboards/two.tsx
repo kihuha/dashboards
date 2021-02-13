@@ -1,4 +1,3 @@
-import { useRef } from "react"
 import styled from "styled-components"
 import { RouteComponentProps } from "@reach/router"
 import Layout from "../components/layout"

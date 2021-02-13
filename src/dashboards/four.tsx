@@ -18,54 +18,44 @@ import { color } from "../design"
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 2rem;
+  padding: 2rem 0;
 
-  @media (min-width: 1200px) {
+  @media (min-width: 600px) {
     flex-direction: row;
   }
 `
+const ChartContent = styled.section`
+  height: 50vh;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 5px;
 
-const ContentChart = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 3.5rem 3rem;
-  background: white;
-  border-radius: 1rem;
-  margin-top: 2rem;
-
-  @media (min-width: 1200px) {
-    margin-top: 0;
+  @media (min-width: 600px) {
+    flex: 1;
+    max-width: 80rem;
+    height: 66.3rem;
   }
-`
 
-const Chart = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-self: stretch;
-  align-items: flex-end;
-  position: relative;
-`
-
-const ContentCards = styled.div`
-  display: grid;
-  grid-template-rows: repeat(5, 1fr);
-  row-gap: 2rem;
-  margin-top: 2rem;
-
-  @media (min-width: 1200px) {
-    margin-top: 0;
+  @media (min-width: 1000px) {
+    flex-direction: row;
+    height: unset;
+    padding: 3rem 3rem 3rem 5rem;
   }
 `
 
 const Card = styled.div`
   display: flex;
-  padding: 1rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  height: 10rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
   background: white;
-  border-radius: 1rem;
+  border-radius: 5px;
 
-  @media (min-width: 1200px) {
-    padding: 2rem 3rem;
+  @media (min-width: 1000px) {
+    height: 14rem;
   }
 `
 
@@ -73,122 +63,53 @@ const CardIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 4.5rem;
-  height: 4.5rem;
-  margin-right: 1.5rem;
-  border-radius: 100%;
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1rem;
   padding: 1rem;
+  border-radius: 100%;
+
+  @media (min-width: 1000px) {
+    width: 9rem;
+    height: 9rem;
+    padding: 2.2rem;
+  }
 
   img {
     width: 100%;
-  }
-
-  @media (min-width: 1200px) {
-    width: 9rem;
-    height: 9rem;
-    padding: 0;
   }
 `
 
 const CardTitle = styled.h3`
   margin-bottom: 0.5rem;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
+
+  @media (min-width: 600px) {
+    margin-bottom: 0.5rem;
+    font-size: 2.2rem;
+  }
 `
 
 const CardText = styled.p`
-  margin-bottom: 2rem;
-  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
   color: rgba(${hexToRgbA("#000")}, 0.4);
-`
 
-const HorizontalProgress = styled.div`
-  display: flex;
-  position: relative;
-  flex-direction: column-reverse;
-  width: 4rem;
-  height: 100%;
-  background: #f8f8f8;
-  border-radius: 2rem;
-
-  &:not(:last-child) {
-    margin-right: 3.5rem;
+  @media (min-width: 600px) {
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
   }
 `
 
-const HorizontalProgressIcon = styled.div`
-  border-radius: 2rem;
-
-  &:not(:first-child) {
-    margin-bottom: 1rem;
-  }
-
-  &:nth-of-type(1) {
-    background: ${color.primary.main};
-  }
-  &:nth-of-type(2) {
-    background: ${color.warning.main};
-  }
-  &:nth-of-type(3) {
-    background: ${color.danger.main};
-  }
+const CardContent = styled.div`
+  flex: 1;
 `
 
-const Legend = styled.div``
-
-const LegendTitle = styled.h3`
-  font-size: 2.2rem;
-`
-
-const LegendGrid = styled.div`
-  display: flex;
-  margin-top: 1rem;
-  margin-bottom: 3.5rem;
-`
-
-const LegendItem = styled.div`
-  display: flex;
-  font-size: 1.4rem;
-
-  &:not(:last-child) {
-    margin-right: 3rem;
+const CardGroup = styled.section`
+  @media (min-width: 600px) {
+    width: 44.8rem;
+    margin-left: auto;
   }
-
-  &::before {
-    content: "";
-    display: block;
-    width: 1.4rem;
-    height: 1.4rem;
-    margin-right: 0.5rem;
-    border-radius: 100%;
-  }
-
-  &:nth-of-type(1) {
-    &::before {
-      background: ${color.primary.main};
-    }
-  }
-  &:nth-of-type(2) {
-    &::before {
-      background: ${color.warning.main};
-    }
-  }
-  &:nth-of-type(3) {
-    &::before {
-      background: ${color.danger.main};
-    }
-  }
-`
-
-const Scale = styled.div<any>`
-  display: flex;
-  flex-direction: ${(props: any) =>
-    props.type === "horizontal" ? "row" : "column"};
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-  margin-right: 4rem;
-  font-size: 1.4rem;
-  color: rgba(0, 0, 0, 0.4);
 `
 
 const FourWrapper = (props: RouteComponentProps) => {
@@ -204,11 +125,11 @@ const FourWrapper = (props: RouteComponentProps) => {
     },
     {
       total: 48.8,
-      values: [14.5, 24.4, 0],
+      values: [14.5, 24.4, 10],
     },
     {
       total: 66.3,
-      values: [26.4, 15.5, 13.4],
+      values: [26.4, 0, 13.4],
     },
     {
       total: 46.2,
@@ -241,45 +162,99 @@ const FourWrapper = (props: RouteComponentProps) => {
   ]
 
   useEffect(() => {
-    if (chartRef.current) {
-      const height = chartRef.current.offsetHeight
-      const width = chartRef.current.offsetWidth
-      const barWidth = 5
-      const yScale = d3.scaleLinear().domain([0, 70]).range([0, height])
-      const xScale = d3.scaleLinear().domain([1, data.length]).range([0, width])
-      const parent = d3.select(chartRef.current).append("svg")
+    const parent = d3.select(chartRef.current).select("svg")
+    const maxTotal = d3.max(data, (d) => d.total)
+    const height = chartRef.current?.offsetHeight
+    const width = chartRef.current?.offsetWidth
 
-      parent
-        .attr("height", "100%")
-        .selectAll("rect")
-        .data(data)
-        .enter()
+    if (width && height && maxTotal) {
+      const yScale = d3
+        .scaleLinear()
+        .domain([0, maxTotal])
+        .range([0, height - 10])
+
+      const spaces = data.length + data.length - 1
+      const barWidth = width / spaces
+
+      const group = parent.selectAll("g").data(data).enter().append("g")
+
+      group
         .append("rect")
-        .attr("width", 10)
-        .attr("height", (d) => yScale(d.total))
-        .attr("test", (d, i) => xScale(i + 1))
-        .attr("y", (d) => height - yScale(d.total))
-        .style("fill", "red")
+        .attr("x", (d, i) => {
+          return i * (barWidth * 2)
+        })
+        .attr("y", (d, i) => {
+          return height - yScale(d.total)
+        })
+        .attr("height", (d, i) => {
+          return yScale(d.total)
+        })
+        .attr("width", barWidth)
+        .attr("rx", barWidth / 2)
+        .style("fill", "#F8F8F8")
+
+      group
+        .append("rect")
+        .attr("x", (d, i) => {
+          return i * (barWidth * 2)
+        })
+        .attr("y", (d, i) => {
+          return height - yScale(d.values[0])
+        })
+        .attr("height", (d, i) => {
+          return yScale(d.values[0])
+        })
+        .attr("width", barWidth)
+        .attr("rx", barWidth / 2)
+        .style("fill", color.primary.main)
+
+      group
+        .append("rect")
+        .attr("x", (d, i) => {
+          return i * (barWidth * 2)
+        })
+        .attr("y", (d, i) => {
+          return height - yScale(d.values[1]) - yScale(d.values[0]) - 5
+        })
+        .attr("height", (d, i) => {
+          return yScale(d.values[1])
+        })
+        .attr("width", barWidth)
+        .attr("rx", barWidth / 2)
+        .style("fill", color.warning.main)
+
+      group
+        .append("rect")
+        .attr("x", (d, i) => {
+          return i * (barWidth * 2)
+        })
+        .attr("y", (d, i) => {
+          return (
+            height -
+            yScale(d.values[2]) -
+            yScale(d.values[1]) -
+            yScale(d.values[0]) -
+            10
+          )
+        })
+        .attr("height", (d, i) => {
+          return yScale(d.values[2])
+        })
+        .attr("width", barWidth)
+        .attr("rx", barWidth / 2)
+        .style("fill", color.danger.main)
     }
-  }, [])
+  }, [data])
 
   return (
     <Layout>
       <Content>
-        <ContentChart>
-          <Legend>
-            <LegendTitle>Z</LegendTitle>
-            <LegendGrid>
-              <LegendItem>Restless</LegendItem>
-              <LegendItem>Awake</LegendItem>
-              <LegendItem>Deep</LegendItem>
-            </LegendGrid>
-          </Legend>
-          <Chart>
-            <div ref={chartRef} style={{ height: "40vh" }}></div>
-          </Chart>
-        </ContentChart>
-        <ContentCards>
+        <ChartContent>
+          <div ref={chartRef} style={{ width: "100%", height: "100%" }}>
+            <svg style={{ width: "100%", height: "100%" }}></svg>
+          </div>
+        </ChartContent>
+        <CardGroup>
           <Card>
             <CardIcon
               style={{
@@ -288,11 +263,11 @@ const FourWrapper = (props: RouteComponentProps) => {
             >
               <img src={One} alt="" />
             </CardIcon>
-            <div>
+            <CardContent>
               <CardTitle>Chris Newton</CardTitle>
               <CardText>Comets are a big source of meteoroids.</CardText>
               <Progress color={color.success.main} width={20} />
-            </div>
+            </CardContent>
           </Card>
           <Card>
             <CardIcon
@@ -302,11 +277,11 @@ const FourWrapper = (props: RouteComponentProps) => {
             >
               <img src={Two} alt="" />
             </CardIcon>
-            <div>
+            <CardContent>
               <CardTitle>Blanche Malone</CardTitle>
               <CardText>Comets are a big source of meteoroids.</CardText>
               <Progress color={color.danger.main} width={20} />
-            </div>
+            </CardContent>
           </Card>
           <Card>
             <CardIcon
@@ -316,11 +291,11 @@ const FourWrapper = (props: RouteComponentProps) => {
             >
               <img src={Three} alt="" />
             </CardIcon>
-            <div>
+            <CardContent>
               <CardTitle>Eunice Wilkins</CardTitle>
               <CardText>Comets are a big source of meteoroids.</CardText>
               <Progress color={color.info.main} width={20} />
-            </div>
+            </CardContent>
           </Card>
           <Card>
             <CardIcon
@@ -330,11 +305,11 @@ const FourWrapper = (props: RouteComponentProps) => {
             >
               <img src={Four} alt="" />
             </CardIcon>
-            <div>
+            <CardContent>
               <CardTitle>Phillip George</CardTitle>
               <CardText>Comets are a big source of meteoroids.</CardText>
               <Progress color={color.primary.main} width={40} />
-            </div>
+            </CardContent>
           </Card>
           <Card>
             <CardIcon
@@ -344,13 +319,13 @@ const FourWrapper = (props: RouteComponentProps) => {
             >
               <img src={Five} alt="" />
             </CardIcon>
-            <div>
+            <CardContent>
               <CardTitle>Birdie Potter</CardTitle>
               <CardText>Comets are a big source of meteoroids.</CardText>
               <Progress color={color.warning.main} width={20} />
-            </div>
+            </CardContent>
           </Card>
-        </ContentCards>
+        </CardGroup>
       </Content>
     </Layout>
   )
