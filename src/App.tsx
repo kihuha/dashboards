@@ -3,7 +3,8 @@ import { createGlobalStyle } from "styled-components"
 import { normalize } from "styled-normalize"
 
 // DASHBOARDS
-import Landing from "./dashboards/landing"
+import Landing from "./pages/Landing"
+import Components from "./pages/Components"
 import One from "./dashboards/one"
 import Two from "./dashboards/two"
 import Three from "./dashboards/three"
@@ -47,6 +48,7 @@ const App = () => {
       <GlobalStyle />
       <Router>
         <Landing path="/" />
+        <Components path="/components" />
         <One path="/one" />
         <Two path="/two" />
         <Three path="/three" />

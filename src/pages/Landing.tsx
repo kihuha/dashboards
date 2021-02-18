@@ -1,5 +1,5 @@
 import { RouteComponentProps, Link } from "@reach/router"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { applyStyleModifiers } from "styled-components-modifiers"
 import { BsArrowRightShort } from "react-icons/bs"
 
@@ -60,14 +60,39 @@ const LandingText = styled.p`
   font-size: 2rem;
 `
 
-const ButtonLink = styled.a`
-  margin-top: 4rem;
-  padding: 2rem 4rem;
+const BaseButton = css`
+  width: 14rem;
+  padding: 1.5rem 2.5rem;
   text-decoration: none;
   font-size: 1.4rem;
+  border-radius: 1rem;
+
+  @media (min-width: 768px) {
+    min-width: 14rem;
+    padding: 2rem 4rem;
+    width: 20rem;
+  }
+`
+
+const ButtonLink = styled.a`
+  ${BaseButton};
   color: white;
   background: #4339f2;
-  border-radius: 1rem;
+`
+
+const ButtonLinkAlt = styled(Link)`
+  ${BaseButton};
+  color: #4339f2;
+  border: solid 2px #4339f2;
+`
+
+const ButtonGroup = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding: 0 1rem;
+  width: 100%;
 `
 
 const Content = styled.div`
@@ -152,9 +177,12 @@ const LandingWrapper = (props: RouteComponentProps) => {
             A collection of dashboard layouts. The design kit and elements were
             designed by Craftwork
           </LandingText>
-          <ButtonLink href="https://dashboardsdesign.com/" target="_blank">
-            Design Kit
-          </ButtonLink>
+          <ButtonGroup>
+            <ButtonLink href="https://dashboardsdesign.com/" target="_blank">
+              Design Kit
+            </ButtonLink>
+            <ButtonLinkAlt to="/components">Components</ButtonLinkAlt>
+          </ButtonGroup>
         </LandingHeader>
       </Landing>
       <Content>

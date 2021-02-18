@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useMemo, useEffect, useRef } from "react"
 import { RouteComponentProps } from "@reach/router"
 import styled from "styled-components"
 import * as d3 from "d3"
@@ -35,6 +35,7 @@ const ChartContent = styled.section`
     flex: 1;
     max-width: 80rem;
     height: 66.3rem;
+    border-radius: 1rem;
   }
 
   @media (min-width: 1000px) {
@@ -56,6 +57,8 @@ const Card = styled.div`
 
   @media (min-width: 1000px) {
     height: 14rem;
+    padding: 1rem 3rem;
+    border-radius: 1rem;
   }
 `
 
@@ -114,52 +117,55 @@ const CardGroup = styled.section`
 
 const FourWrapper = (props: RouteComponentProps) => {
   const chartRef = useRef<null | HTMLDivElement>(null)
-  const data = [
-    {
-      total: 42.4,
-      values: [8, 18, 0],
-    },
-    {
-      total: 55.5,
-      values: [11, 20.9, 7],
-    },
-    {
-      total: 48.8,
-      values: [14.5, 24.4, 10],
-    },
-    {
-      total: 66.3,
-      values: [26.4, 0, 13.4],
-    },
-    {
-      total: 46.2,
-      values: [20.9, 20.9, 0],
-    },
-    {
-      total: 52.9,
-      values: [23.4, 6.3, 10.5],
-    },
-    {
-      total: 39.7,
-      values: [7.6, 14.4, 7],
-    },
-    {
-      total: 63.7,
-      values: [14.4, 27.3, 13.3],
-    },
-    {
-      total: 46.2,
-      values: [6.3, 30.1, 0],
-    },
-    {
-      total: 28.9,
-      values: [8, 13.6, 0],
-    },
-    {
-      total: 63.7,
-      values: [15.7, 29.7, 10],
-    },
-  ]
+  const data = useMemo(
+    () => [
+      {
+        total: 42.4,
+        values: [8, 18, 0],
+      },
+      {
+        total: 55.5,
+        values: [11, 20.9, 7],
+      },
+      {
+        total: 48.8,
+        values: [14.5, 24.4, 10],
+      },
+      {
+        total: 66.3,
+        values: [26.4, 0, 13.4],
+      },
+      {
+        total: 46.2,
+        values: [20.9, 20.9, 0],
+      },
+      {
+        total: 52.9,
+        values: [23.4, 6.3, 10.5],
+      },
+      {
+        total: 39.7,
+        values: [7.6, 14.4, 7],
+      },
+      {
+        total: 63.7,
+        values: [14.4, 27.3, 13.3],
+      },
+      {
+        total: 46.2,
+        values: [6.3, 30.1, 0],
+      },
+      {
+        total: 28.9,
+        values: [8, 13.6, 0],
+      },
+      {
+        total: 63.7,
+        values: [15.7, 29.7, 10],
+      },
+    ],
+    []
+  )
 
   useEffect(() => {
     const parent = d3.select(chartRef.current).select("svg")

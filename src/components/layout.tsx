@@ -1,9 +1,11 @@
 import styled from "styled-components"
+import { navigate } from "@reach/router"
 import MobileHeader from "./mobileHeader"
 import Sidebar from "./sidebar"
+import ButtonWrapper from "./button"
 
 // ICONS
-import { BsPlus } from "react-icons/bs"
+import { BsArrowLeft, BsPlus } from "react-icons/bs"
 import SearchIcon from "../img/search.svg"
 
 // AVATARS
@@ -19,6 +21,7 @@ const Wrapper = styled.section`
 
 const Navbar = styled.div`
   display: none;
+
   @media (min-width: 1000px) {
     display: flex;
     align-items: center;
@@ -75,7 +78,7 @@ const AvatarBadge = styled.div`
 
 const Content = styled.div`
   width: 100%;
-  padding: 0 1rem;
+  padding: 0 1rem 4rem 1rem;
 
   @media (min-width: 1000px) {
     margin-left: 9.6rem;
@@ -89,6 +92,13 @@ const MainArea = styled.div`
   }
 `
 
+const Button = styled(ButtonWrapper)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 2rem;
+`
+
 const Layout = (props: { children: JSX.Element | JSX.Element[] }) => (
   <>
     <MobileHeader />
@@ -96,7 +106,11 @@ const Layout = (props: { children: JSX.Element | JSX.Element[] }) => (
       <Sidebar />
       <Content>
         <Navbar>
-          <form>
+          <form style={{ display: "flex" }}>
+            <Button onClick={() => navigate("/")}>
+              <BsArrowLeft size={25} />
+              Back
+            </Button>
             <div style={{ display: "flex", alignItems: "center" }}>
               <img src={SearchIcon} alt="search icon" />
               <SearchInput

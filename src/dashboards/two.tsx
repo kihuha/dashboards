@@ -27,7 +27,7 @@ const CardGrid = styled.div`
   & > div {
     width: 100%;
     max-width: 35rem;
-    margin: 0 auto 1rem auto;
+    margin: 0 auto 2rem auto;
 
     @media (min-width: 600px) {
       max-width: calc(30rem - 0.5rem);
