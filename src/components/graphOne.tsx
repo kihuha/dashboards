@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo, useState } from "react"
+import { useEffect, useRef, useMemo, useCallback } from "react"
 import styled, { css } from "styled-components"
 import * as d3 from "d3"
 
@@ -144,15 +144,8 @@ const GraphOne = () => {
     []
   )
 
-  useEffect(() => {
-    const height = chartRef.current?.offsetHeight
-    const width = chartRef.current?.offsetWidth
-    const maxTotal = d3.max(data, (d) => {
-      return d.total
-    })
-    const barWidth = 17
-
-    if (height && width && maxTotal) {
+  const renderGraph = useCallback(
+    (width: any, height: any, barWidth: any, maxTotal: any) => {
       const yScale = d3
         .scaleLinear()
         .domain([0, maxTotal])
@@ -160,7 +153,7 @@ const GraphOne = () => {
       const xScale = d3
         .scaleLinear()
         .domain([0, data.length - 1])
-        .range([0, width - barWidth])
+        .range([0, width - barWidth - 0])
       const parent = d3.select(chartRef.current).select("svg")
 
       const group = parent.selectAll("g").data(data).enter().append("g")
@@ -177,8 +170,22 @@ const GraphOne = () => {
         .attr("width", barWidth)
         .attr("fill", color.primary.main)
         .attr("rx", 10)
+    },
+    [data]
+  )
+
+  useEffect(() => {
+    const height = chartRef.current?.offsetHeight
+    const width = chartRef.current?.offsetWidth
+    const maxTotal = d3.max(data, (d) => {
+      return d.total
+    })
+    const barWidth = 17
+
+    if (height && width && maxTotal) {
+      renderGraph(width, height, barWidth, maxTotal)
     }
-  }, [data])
+  }, [data, renderGraph])
 
   return (
     <GraphLayout>
