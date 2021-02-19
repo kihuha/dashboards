@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useMemo, useState } from "react"
 import styled, { css } from "styled-components"
 import * as d3 from "d3"
 
@@ -102,44 +102,47 @@ const Grid = styled.div`
 const GraphOne = () => {
   const chartRef = useRef<null | HTMLDivElement>(null)
   const limits = [100, 200, 300, 400, 500, 600, 700].reverse()
-  const data = [
-    {
-      total: 550,
-    },
-    {
-      total: 620,
-    },
-    {
-      total: 480,
-    },
-    {
-      total: 610,
-    },
-    {
-      total: 395,
-    },
-    {
-      total: 690,
-    },
-    {
-      total: 550,
-    },
-    {
-      total: 580,
-    },
-    {
-      total: 670,
-    },
-    {
-      total: 490,
-    },
-    {
-      total: 670,
-    },
-    {
-      total: 620,
-    },
-  ]
+  const data = useMemo(
+    () => [
+      {
+        total: 550,
+      },
+      {
+        total: 620,
+      },
+      {
+        total: 480,
+      },
+      {
+        total: 610,
+      },
+      {
+        total: 395,
+      },
+      {
+        total: 690,
+      },
+      {
+        total: 550,
+      },
+      {
+        total: 580,
+      },
+      {
+        total: 670,
+      },
+      {
+        total: 490,
+      },
+      {
+        total: 670,
+      },
+      {
+        total: 620,
+      },
+    ],
+    []
+  )
 
   useEffect(() => {
     const height = chartRef.current?.offsetHeight
@@ -175,7 +178,7 @@ const GraphOne = () => {
         .attr("fill", color.primary.main)
         .attr("rx", 10)
     }
-  }, [])
+  }, [data])
 
   return (
     <GraphLayout>
