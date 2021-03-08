@@ -26,20 +26,17 @@ const Pie = ({
   const [arcs, setArcs] = useState<any>([])
 
   const generateArc = useCallback(
-    (percent: number, startAngle: number = 0): string => {
-      const scale = d3
-        .scaleLinear()
-        .domain([0, 100])
-        .range([0, 2 * Math.PI])
-
-      console.log(`${startAngle} to ${percent}`)
-
+    (
+      percent: number,
+      startAngle: number = 0,
+      endAngle: number = Math.PI * 2 * percent
+    ): string => {
       const arc: any = d3
         .arc()
         .innerRadius(100 - (pie ? 100 : thickness || 0))
         .outerRadius(100)
-        .startAngle(scale(startAngle))
-        .endAngle(scale(percent))
+        .startAngle(startAngle)
+        .endAngle(endAngle)
 
       return arc()
     },
@@ -47,26 +44,23 @@ const Pie = ({
   )
 
   const generateMultipleChart = useCallback(() => {
-    // GENERATE REFS AND ARCS FOR ALL DATA ITEMS
-    const total = d3.sum(data)
+    const total: number = d3.sum(data)
 
-    let prev = 0
-    const arcs = data.map((item: any) => {
-      const percent = (item / total) * 100
-      const arc = generateArc(percent, prev)
-      prev = percent
+    const pie = d3.pie().value((d: any) => d.value / 100)
 
-      return arc
+    pie(data).map((segment: any, index) => {
+      const arc = generateArc(
+        segment.value,
+        segment.startAngle,
+        segment.endAngle
+      )
+      if (itemRefs[index])
+        d3.select(itemRefs[index].current)
+          .attr("d", arc)
+          .style("transform", "translate(50%, 50%)")
+          .style("fill", segment.data.color)
     })
-    const colors = ["red", "orange", "green", "springgreen"]
-
-    // itemRefs.map((itemRef: any, index: number) => {
-    //   d3.select(itemRef.current)
-    //     .attr("d", arcs[index])
-    //     .style("transform", "translate(50%, 50%)")
-    //     .style("fill", colors[index])
-    // })
-  }, [itemRefs, data, generateArc])
+  }, [data, generateArc, itemRefs])
 
   const generateChart = useCallback(
     (parent: any) => {

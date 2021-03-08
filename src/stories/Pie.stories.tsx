@@ -31,10 +31,20 @@ export const MultipleDataItems = Template.bind({})
 MultipleDataItems.args = {
   height: 200,
   width: 200,
-  data: [20, 40, 60, 80],
+  data: [
+    {
+      value: 20,
+      color: "red",
+    },
+    {
+      value: 40,
+      color: "dodgerblue",
+    },
+    {
+      value: 50,
+      color: "springgreen",
+    },
+  ],
   thickness: 10,
   pie: true,
-  color: "#1e90ff",
-  background: true,
-  backgroundOpacity: 0.2,
 }
