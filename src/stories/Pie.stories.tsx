@@ -19,7 +19,19 @@ export const Default = Template.bind({})
 Default.args = {
   height: 200,
   width: 200,
-  percent: 30,
+  data: 30,
+  thickness: 10,
+  pie: true,
+  color: "#1e90ff",
+  background: true,
+  backgroundOpacity: 0.2,
+}
+
+export const MultipleDataItems = Template.bind({})
+MultipleDataItems.args = {
+  height: 200,
+  width: 200,
+  data: [20, 40, 60, 80],
   thickness: 10,
   pie: true,
   color: "#1e90ff",
