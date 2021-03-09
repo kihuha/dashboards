@@ -48,3 +48,37 @@ MultipleDataItems.args = {
   thickness: 10,
   pie: true,
 }
+
+export const Doughnut = Template.bind({})
+Doughnut.args = {
+  height: 200,
+  width: 200,
+  data: 30,
+  thickness: 10,
+  pie: false,
+  color: "#1e90ff",
+  background: true,
+  backgroundOpacity: 0.2,
+}
+
+export const MultipleDataItemsDoughnut = Template.bind({})
+MultipleDataItemsDoughnut.args = {
+  height: 200,
+  width: 200,
+  data: [
+    {
+      value: 20,
+      color: "red",
+    },
+    {
+      value: 40,
+      color: "dodgerblue",
+    },
+    {
+      value: 50,
+      color: "springgreen",
+    },
+  ],
+  thickness: 10,
+  pie: false,
+}

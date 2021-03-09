@@ -23,7 +23,6 @@ const Pie = ({
   const ref = useRef(null)
   const backRef = useRef(null)
   const [itemRefs, setItemRefs] = useState<any>([])
-  const [arcs, setArcs] = useState<any>([])
 
   const generateArc = useCallback(
     (
@@ -44,8 +43,6 @@ const Pie = ({
   )
 
   const generateMultipleChart = useCallback(() => {
-    const total: number = d3.sum(data)
-
     const pie = d3.pie().value((d: any) => d.value / 100)
 
     pie(data).map((segment: any, index) => {

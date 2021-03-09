@@ -1,51 +1,13 @@
 import styled from "styled-components"
-import { applyStyleModifiers } from "styled-components-modifiers"
-import { color as BaseColor, font, base } from "../design"
 
-const color: any = { ...BaseColor }
-const MODIFIER_CONFIG: {
-  [name: string]: () => string
-} = {}
-
-Object.keys(color).map((colorName: string) => {
-  MODIFIER_CONFIG[colorName] = () => `
-    color: white;
-    background: ${color[colorName].main};
-  `
-  MODIFIER_CONFIG[`${colorName}Light`] = () => `
-    color: ${color[colorName].main};
-    background: ${color[colorName].light};
-  `
-
-  return
-})
-
-interface IButton {
-  modifiers?:
-    | "primary"
-    | "primaryLight"
-    | "info"
-    | "infoLight"
-    | "warning"
-    | "warningLight"
-    | "danger"
-    | "dangerLight"
-    | "success"
-    | "successLight"
-}
-
-const ButtonWrapper = styled.button<IButton>`
-  min-width: 14rem;
-  padding: 1.5rem;
-  border: none;
-  outline: none;
-  font-family: inherit;
-  border-radius: ${base.borderRadius};
-  font-size: ${font.size.h4};
-  background: white;
-  cursor: pointer;
-
-  ${applyStyleModifiers(MODIFIER_CONFIG)}
+const StyledButton = styled.button`
+  min-width: 140px;
+  min-height: 50px;
+  font-size: 14px;
 `
 
-export default ButtonWrapper
+const Button = (props: any) => {
+  return <StyledButton>{props.label}</StyledButton>
+}
+
+export default Button
