@@ -9,7 +9,9 @@ export default {
   component: Button,
 } as Meta
 
-const Template: Story<any> = (args) => <Button {...args} />
+const Template: Story<any> = (args) => (
+  <Button style={{ boxShadow: "0 0 3px 5px rgba(0,0,0,0.05)" }} {...args} />
+)
 
 export const Primary = Template.bind({})
 Primary.args = {
