@@ -8,7 +8,7 @@ import images from "../components/images"
 import { color } from "../design"
 
 export default {
-  title: "Basic/Avatar",
+  title: "Design System/components/Avatar",
   component: Avatar,
 } as Meta
 

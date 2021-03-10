@@ -6,7 +6,7 @@ import Progress from "../components/progress"
 import { color } from "../design"
 
 export default {
-  title: "Basic/Progress",
+  title: "Design System/components/Progress",
   component: Progress,
 } as Meta
 

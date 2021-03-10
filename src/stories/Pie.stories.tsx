@@ -4,7 +4,7 @@ import { Story, Meta } from "@storybook/react/types-6-0"
 import Pie from "../components/pie"
 
 export default {
-  title: "Basic/Pie",
+  title: "Design System/components/Pie",
   component: Pie,
   argTypes: {},
 } as Meta

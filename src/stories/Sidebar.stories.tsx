@@ -5,7 +5,7 @@ import { Story, Meta } from "@storybook/react/types-6-0"
 import Sidebar from "../compositions/sidebar"
 
 export default {
-  title: "Compositions/Sidebar",
+  title: "Design System/compositions/Sidebar",
   component: Sidebar,
 } as Meta
 

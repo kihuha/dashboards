@@ -8,7 +8,7 @@ import IconButton from "../components/iconButton"
 import { color } from "../design"
 
 export default {
-  title: "Basic/Button",
+  title: "Design System/components/Button",
   component: Button,
 } as Meta
 
