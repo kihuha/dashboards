@@ -1,12 +1,14 @@
 import styled, { css } from "styled-components"
+import { colorIsDark } from "../chartUtils/color"
 import { color } from "../design"
 
 const secondaryStyle = css`
-  color: ${color.primary.main};
+  background: ${(props: any) => (colorIsDark(props.color) ? "white" : "black")};
+  color: ${(props: any) => props.color};
 `
 const primaryStyle = css`
-  background: ${color.primary.main};
-  color: white;
+  background: ${(props: any) => props.color};
+  color: ${(props: any) => (colorIsDark(props.color) ? "white" : "black")};
 `
 
 const StyledButton = styled.button`
@@ -24,8 +26,16 @@ const StyledButton = styled.button`
   ${(props: any) => (props.primary ? primaryStyle : secondaryStyle)}
 `
 
-const Button = ({ label, ...rest }: any) => {
-  return <StyledButton {...rest}>{label}</StyledButton>
+const Button = ({
+  label,
+  color: buttonColor = color.primary.main,
+  ...rest
+}: any) => {
+  return (
+    <StyledButton color={buttonColor} {...rest}>
+      {label}
+    </StyledButton>
+  )
 }
 
 export default Button

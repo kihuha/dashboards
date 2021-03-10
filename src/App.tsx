@@ -40,6 +40,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'DM Sans', sans-serif;
     background: #f8f8f8;
   }
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
 `
 
 const App = () => {

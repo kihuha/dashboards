@@ -30,18 +30,14 @@ const StyledProgressIcon = styled.div<any>`
   height: 0.5rem;
   background: ${(props: any) => props.color};
 `
-
-const Progress = ({
-  width,
-  color,
-  title,
-  titleNumber,
-}: {
+export interface ProgressProps {
   width: number
   color: string
-  title: string
-  titleNumber: number
-}) => {
+  title?: string
+  titleNumber?: number
+}
+
+const Progress = ({ width, color, title, titleNumber }: ProgressProps) => {
   return (
     <StyledProgress>
       {(title || titleNumber) && (
