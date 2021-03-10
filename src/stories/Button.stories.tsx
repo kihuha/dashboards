@@ -1,8 +1,11 @@
 import React from "react"
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from "@storybook/react/types-6-0"
+import { FiPlus } from "react-icons/fi"
 
 import Button from "../components/button"
+import IconButton from "../components/iconButton"
+import { color } from "../design"
 
 export default {
   title: "Basic/Button",
@@ -23,4 +26,11 @@ export const Secondary = Template.bind({})
 Secondary.args = {
   label: "See More",
   primary: false,
+}
+
+export const AsIconButton = (args: any) => <IconButton {...args} />
+AsIconButton.args = {
+  icon: <FiPlus size={25} />,
+  primary: true,
+  color: color.primary.main,
 }
