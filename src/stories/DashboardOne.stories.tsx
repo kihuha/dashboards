@@ -9,6 +9,7 @@ import {
 
 import images from "../components/images"
 import { color } from "../design"
+import DashboardGrid from "../grids/dashboardOne"
 
 export default {
   title: "Design System/compositions/DashboardOne",
@@ -46,3 +47,45 @@ UserCard.args = {
 }
 
 export const MarketingCard: Story = () => <MarketingCardComponent />
+
+export const Grid: Story = () => <DashboardGrid />
+
+const colors = [color.success.main, color.danger.main, color.primary.main]
+export const GridWithContent: Story = () => (
+  <DashboardGrid
+    content={{
+      top: {
+        cards: [
+          ...images.slice(0, 3).map((item: any, index: number) => (
+            <UserCard
+              photo={item.photo}
+              name={item.name}
+              location="Bulgaria"
+              progressBars={[
+                {
+                  width: 50,
+                  color: colors[index],
+                  title: "Instagram",
+                  titleNumber: 34908,
+                },
+                {
+                  width: 30,
+                  color: colors[index],
+                  title: "Facebook",
+                  titleNumber: 14910,
+                },
+                {
+                  width: 85,
+                  color: colors[index],
+                  title: "Twitter",
+                  titleNumber: 59020,
+                },
+              ]}
+              key={index}
+            />
+          )),
+        ],
+      },
+    }}
+  />
+)
