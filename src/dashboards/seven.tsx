@@ -1,4 +1,4 @@
-import { RouteComponentProps } from "@reach/router"
+
 import styled from "styled-components"
 import { BsThreeDots } from "react-icons/bs"
 
@@ -118,7 +118,7 @@ const LegendItem = styled.div`
   }
 `
 
-const Seven = (props: RouteComponentProps) => {
+const Seven = () => {
   return (
     <Layout>
       <Top>

@@ -1,10 +1,10 @@
-import { RouteComponentProps } from "@reach/router"
+
 
 // COMPONENTS
 import Layout from "../components/layout"
 import InProgress from "../components/inProgress"
 
-const Fifteen = (props: RouteComponentProps) => {
+const Fifteen = () => {
   return (
     <Layout>
       <InProgress />

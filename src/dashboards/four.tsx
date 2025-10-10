@@ -1,5 +1,5 @@
 import { useMemo, useEffect, useRef } from "react"
-import { RouteComponentProps } from "@reach/router"
+
 import styled from "styled-components"
 import * as d3 from "d3"
 import { hexToRgbA } from "../utils"
@@ -115,7 +115,7 @@ const CardGroup = styled.section`
   }
 `
 
-const FourWrapper = (props: RouteComponentProps) => {
+const FourWrapper = () => {
   const chartRef = useRef<null | HTMLDivElement>(null)
   const data = useMemo(
     () => [

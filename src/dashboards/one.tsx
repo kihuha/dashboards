@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react"
-import { RouteComponentProps } from "@reach/router"
 import styled from "styled-components"
 import { BsThreeDots } from "react-icons/bs"
 import * as d3 from "d3"
@@ -152,7 +151,7 @@ const PieChartTitle = styled.h2`
   margin-bottom: 2.5rem;
 `
 
-const OneWrapper = (props: RouteComponentProps) => {
+const OneWrapper = () => {
   const chartRef = useRef<any>(null)
 
   const barWidth = 20

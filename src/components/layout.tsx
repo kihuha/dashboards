@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { navigate } from "@reach/router"
+import { useNavigate } from "react-router-dom"
 import MobileHeader from "./mobileHeader"
 import Sidebar from "./sidebar"
 import ButtonWrapper from "./button"
@@ -99,44 +99,50 @@ const Button = styled(ButtonWrapper)`
   margin-right: 2rem;
 `
 
-const Layout = (props: { children: JSX.Element | JSX.Element[] }) => (
-  <>
-    <MobileHeader />
-    <Wrapper>
-      <Sidebar />
-      <Content>
-        <Navbar>
-          <form style={{ display: "flex" }}>
-            <Button onClick={() => navigate("/")}>
-              <BsArrowLeft size={25} />
-              Back
-            </Button>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img src={SearchIcon} alt="search icon" />
-              <SearchInput
-                type="search"
-                name="search"
-                id="searchID"
-                placeholder="Search"
-              />
-            </div>
-          </form>
-          <AvatarGrid>
-            <Avatar style={{ background: `url(${AvatarOne})` }}>
-              <AvatarBadge />
-            </Avatar>
-            <Avatar style={{ background: `url(${AvatarTwo})` }} />
-            <Avatar style={{ background: `url(${AvatarThree})` }} />
-            <Avatar style={{ background: color.primary.main, color: "white" }}>
-              <BsPlus size={25} />
-            </Avatar>
-          </AvatarGrid>
-        </Navbar>
+const Layout = (props: { children: JSX.Element | JSX.Element[] }) => {
+  const navigate = useNavigate()
 
-        <MainArea>{props.children}</MainArea>
-      </Content>
-    </Wrapper>
-  </>
-)
+  return (
+    <>
+      <MobileHeader />
+      <Wrapper>
+        <Sidebar />
+        <Content>
+          <Navbar>
+            <form style={{ display: "flex" }}>
+              <Button onClick={() => navigate("/")}>
+                <BsArrowLeft size={25} />
+                Back
+              </Button>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <img src={SearchIcon} alt="search icon" />
+                <SearchInput
+                  type="search"
+                  name="search"
+                  id="searchID"
+                  placeholder="Search"
+                />
+              </div>
+            </form>
+            <AvatarGrid>
+              <Avatar style={{ background: `url(${AvatarOne})` }}>
+                <AvatarBadge />
+              </Avatar>
+              <Avatar style={{ background: `url(${AvatarTwo})` }} />
+              <Avatar style={{ background: `url(${AvatarThree})` }} />
+              <Avatar
+                style={{ background: color.primary.main, color: "white" }}
+              >
+                <BsPlus size={25} />
+              </Avatar>
+            </AvatarGrid>
+          </Navbar>
+
+          <MainArea>{props.children}</MainArea>
+        </Content>
+      </Wrapper>
+    </>
+  )
+}
 
 export default Layout

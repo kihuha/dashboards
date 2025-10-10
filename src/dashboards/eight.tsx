@@ -1,4 +1,4 @@
-import { RouteComponentProps } from "@reach/router"
+
 import styled from "styled-components"
 import { BsArrowRightShort, BsArrowLeftShort } from "react-icons/bs"
 
@@ -86,7 +86,7 @@ const AvatarGrid = styled.div`
 
 const Avatar = styled.img``
 
-const Eight = (props: RouteComponentProps) => {
+const Eight = () => {
   return (
     <Layout>
       <Top>

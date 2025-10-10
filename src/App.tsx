@@ -1,4 +1,4 @@
-import { Router } from "@reach/router"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { createGlobalStyle } from "styled-components"
 import { normalize } from "styled-normalize"
 
@@ -48,24 +48,26 @@ const App = () => {
     <>
       <GlobalStyle />
       <Router>
-        <Landing path="/" />
-        <Components path="/components" />
-        <One path="/one" />
-        <Two path="/two" />
-        <Three path="/three" />
-        <Four path="/four" />
-        <Five path="/five" />
-        <Six path="/six" />
-        <Seven path="/seven" />
-        <Eight path="/eight" />
-        <Nine path="/nine" />
-        <Ten path="/ten" />
-        <Eleven path="/eleven" />
-        <Twelve path="/twelve" />
-        <Thirteen path="/thirteen" />
-        <Fourteen path="/fourteen" />
-        <Fifteen path="/fifteen" />
-        <LandingComponents path="/new" />
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/components" element={<Components />} />
+          <Route path="/one" element={<One />} />
+          <Route path="/two" element={<Two />} />
+          <Route path="/three" element={<Three />} />
+          <Route path="/four" element={<Four />} />
+          <Route path="/five" element={<Five />} />
+          <Route path="/six" element={<Six />} />
+          <Route path="/seven" element={<Seven />} />
+          <Route path="/eight" element={<Eight />} />
+          <Route path="/nine" element={<Nine />} />
+          <Route path="/ten" element={<Ten />} />
+          <Route path="/eleven" element={<Eleven />} />
+          <Route path="/twelve" element={<Twelve />} />
+          <Route path="/thirteen" element={<Thirteen />} />
+          <Route path="/fourteen" element={<Fourteen />} />
+          <Route path="/fifteen" element={<Fifteen />} />
+          <Route path="/new" element={<LandingComponents />} />
+        </Routes>
       </Router>
     </>
   )

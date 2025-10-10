@@ -1,4 +1,4 @@
-import { navigate } from "@reach/router"
+import { useNavigate } from "react-router-dom"
 import styled, { keyframes } from "styled-components"
 
 import Button from "../components/button"
@@ -38,19 +38,23 @@ const ProgressBand = styled.div`
   animation: 1s linear infinite ${progressBarStripes};
 `
 
-const InProgress = () => (
-  <Progress>
-    <ProgressTitle>In Progress</ProgressTitle>
-    <ProgressBand />
+const InProgress = () => {
+  const navigate = useNavigate()
 
-    <Button
-      modifiers="primary"
-      style={{ marginTop: "2rem", cursor: "pointer" }}
-      onClick={() => navigate("/")}
-    >
-      Home
-    </Button>
-  </Progress>
-)
+  return (
+    <Progress>
+      <ProgressTitle>In Progress</ProgressTitle>
+      <ProgressBand />
+
+      <Button
+        modifiers="primary"
+        style={{ marginTop: "2rem", cursor: "pointer" }}
+        onClick={() => navigate("/")}
+      >
+        Home
+      </Button>
+    </Progress>
+  )
+}
 
 export default InProgress

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { RouteComponentProps } from "@reach/router"
+
 import Layout from "../components/layout"
 import Badge from "../components/badge"
 
@@ -97,7 +97,7 @@ const CardBtnLink = styled.a`
   font-size: 1.4rem;
 `
 
-const Two = (props: RouteComponentProps) => {
+const Two = () => {
   // const cardOne = `useRef(null)
   // const cardTwo = useRef(null)
   // const cardThree = useRef(null)

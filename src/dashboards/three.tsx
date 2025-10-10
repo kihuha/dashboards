@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { RouteComponentProps } from "@reach/router"
+
 
 // COMPONENTS
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs"
@@ -86,7 +86,7 @@ const CalendarEvent = styled(Badge)`
   }
 `
 
-const Three = (props: RouteComponentProps) => {
+const Three = () => {
   const days = [
     { date: 1, events: [] },
     {

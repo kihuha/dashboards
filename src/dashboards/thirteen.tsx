@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react"
-import { RouteComponentProps } from "@reach/router"
+
 import styled from "styled-components"
 import * as d3 from "d3"
 import { BsThreeDots } from "react-icons/bs"
@@ -95,7 +95,7 @@ const PieTitle = styled.h2`
 `
 const BottomRight = styled(Paper)``
 
-const Thirteen = (props: RouteComponentProps) => {
+const Thirteen = () => {
   const topRef = useRef<HTMLDivElement | null>(null)
   const chartRef = useRef(null)
   const lineChartRef = useRef<HTMLDivElement | null>(null)

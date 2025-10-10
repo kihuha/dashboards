@@ -1,7 +1,6 @@
-import { RouteComponentProps } from "@reach/router"
 import styled from "styled-components"
 
-// COMPONENTS
+// IMAGES
 import Button from "./button"
 
 const Wrapper = styled.div``
@@ -15,7 +14,7 @@ const CardWrapper = styled.div`
   column-gap: 2rem;
 `
 
-const Page = (props: RouteComponentProps) => {
+const Page = () => {
   return (
     <Wrapper>
       <h1>Components list</h1>

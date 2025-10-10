@@ -1,4 +1,4 @@
-import { RouteComponentProps } from "@reach/router"
+
 import styled from "styled-components"
 import { BsChevronRight } from "react-icons/bs"
 
@@ -91,7 +91,7 @@ const Row = styled.div`
   }
 `
 
-const Twelve = (props: RouteComponentProps) => {
+const Twelve = () => {
   return (
     <Layout>
       <CardGrid>

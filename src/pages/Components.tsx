@@ -1,4 +1,3 @@
-import { RouteComponentProps } from "@reach/router"
 import styled from "styled-components"
 
 // GRAPHS
@@ -38,7 +37,7 @@ const Content = styled.div`
   align-items: center;
 `
 
-const Components = (props: RouteComponentProps) => {
+const Components = () => {
   return (
     <Layout>
       <ComponentHeader>

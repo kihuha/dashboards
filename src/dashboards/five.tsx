@@ -1,4 +1,4 @@
-import { RouteComponentProps } from "@reach/router"
+
 import styled from "styled-components"
 
 // COMPONENTS
@@ -178,7 +178,7 @@ const Bar = styled.div<any>`
   }
 `
 
-const Five = (props: RouteComponentProps) => {
+const Five = () => {
   const testData = [
     164,
     132,

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import { RouteComponentProps } from "@reach/router"
+
 import styled from "styled-components"
 import { BsThreeDotsVertical } from "react-icons/bs"
 import * as d3 from "d3"
@@ -109,7 +109,7 @@ const DoughnutGrid = styled.div`
   }
 `
 
-const Nine = (props: RouteComponentProps) => {
+const Nine = () => {
   const lineRef = useRef<HTMLDivElement | null>(null)
   const barRef = useRef<HTMLDivElement | null>(null)
   const areaRef = useRef<HTMLDivElement | null>(null)

@@ -1,4 +1,4 @@
-import { RouteComponentProps, Link } from "@reach/router"
+import { Link } from "react-router-dom"
 import styled, { css } from "styled-components"
 import { applyStyleModifiers } from "styled-components-modifiers"
 import { BsArrowRightShort } from "react-icons/bs"
@@ -80,10 +80,11 @@ const ButtonLink = styled.a`
   background: #4339f2;
 `
 
-const ButtonLinkAlt = styled(Link)`
+const ButtonLinkAlt = styled.a`
   ${BaseButton};
   color: #4339f2;
   border: solid 2px #4339f2;
+  text-decoration: none;
 `
 
 const ButtonGroup = styled.div`
@@ -132,12 +133,13 @@ const CardTitle = styled.h2`
   font-size: 2rem;
 `
 
-const CardBtn = styled(Link)<any>`
+const CardBtn = styled.a`
   display: flex;
   align-items: center;
   border: none;
   outline: none;
   background: transparent;
+  text-decoration: none;
   font-size: 1.4rem;
   padding: 0.5rem 1rem;
   border: solid 2px #4339f2;
@@ -148,7 +150,7 @@ const CardBtn = styled(Link)<any>`
   ${applyStyleModifiers(MODIFIER_CONFIG)}
 `
 
-const LandingWrapper = (props: RouteComponentProps) => {
+const LandingWrapper = () => {
   const dashboards = [
     { label: "One", img: One, completed: true, link: "/one" },
     { label: "Two", img: Two, completed: true, link: "/two" },
@@ -198,18 +200,35 @@ const LandingWrapper = (props: RouteComponentProps) => {
             >
               <CardTitle>Dashboard {item.label}</CardTitle>
               {item.completed ? (
-                <CardBtn to={`${item.link}`}>
+                <Link
+                  to={`${item.link}`}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    textDecoration: "none",
+                    background: "transparent",
+                    border: "none",
+                    outline: "none",
+                  }}
+                >
                   View
                   <BsArrowRightShort size={20} style={{ marginLeft: "5px" }} />
-                </CardBtn>
+                </Link>
               ) : (
-                <CardBtn
-                  modifiers="warning"
+                <Link
                   to={`${item.link}`}
                   state={{ completed: false }}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    textDecoration: "none",
+                    background: "transparent",
+                    border: "none",
+                    outline: "none",
+                  }}
                 >
                   In Progress
-                </CardBtn>
+                </Link>
               )}
             </div>
           </Card>

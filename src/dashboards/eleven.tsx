@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import { RouteComponentProps } from "@reach/router"
+
 import styled from "styled-components"
 import * as d3 from "d3"
 import { BsPlus, BsChevronDown } from "react-icons/bs"
@@ -144,7 +144,7 @@ interface IContent {
   images: any[]
 }
 
-const Eleven = (props: RouteComponentProps) => {
+const Eleven = () => {
   const lineRef = useRef<null | HTMLDivElement>(null)
 
   useEffect(() => {

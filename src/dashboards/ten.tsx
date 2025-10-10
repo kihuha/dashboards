@@ -1,4 +1,4 @@
-import { RouteComponentProps } from "@reach/router"
+
 import styled from "styled-components"
 
 // COMPONENTS
@@ -96,7 +96,7 @@ const HeroGrid = styled.div`
   margin-bottom: 4rem;
 `
 
-const Ten = (props: RouteComponentProps) => {
+const Ten = () => {
   const leftArr = [
     {
       img: AvatarOne,

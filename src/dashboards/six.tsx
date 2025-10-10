@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { RouteComponentProps } from "@reach/router"
+
 
 // COMPONENTS
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs"
@@ -69,7 +69,7 @@ const EventLabel = styled.p`
   font-size: 1.4rem;
 `
 
-const Six = (props: RouteComponentProps) => {
+const Six = () => {
   const getTop = (time: number) => {
     return (time / 2359) * 75
   }

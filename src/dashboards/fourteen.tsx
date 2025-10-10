@@ -1,4 +1,4 @@
-import { RouteComponentProps } from "@reach/router"
+
 import styled from "styled-components"
 
 // COMPONENTS
@@ -266,7 +266,7 @@ const content = [
   },
 ]
 
-const Fourteen = (props: RouteComponentProps) => {
+const Fourteen = () => {
   return (
     <Layout>
       <Grid>
