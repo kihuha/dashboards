@@ -89,7 +89,7 @@ const ButtonLinkAlt = styled(Link)`
 const ButtonGroup = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 2rem;
   padding: 0 1rem;
   width: 100%;

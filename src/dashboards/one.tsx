@@ -105,6 +105,7 @@ const AdTitle = styled.h2`
 
 const AdText = styled.p`
   font-size: 1.4rem;
+  line-height: 2rem;
 
   @media (min-width: 1000px) {
     width: 45rem;
@@ -159,18 +160,7 @@ const OneWrapper = (props: RouteComponentProps) => {
   useEffect(() => {
     // CREATE BAR CHART
     const dataset: number[] = [
-      300,
-      209,
-      257,
-      139,
-      188,
-      340,
-      274,
-      178,
-      270,
-      146,
-      229,
-      290,
+      300, 209, 257, 139, 188, 340, 274, 178, 270, 146, 229, 290,
     ]
 
     if (chartRef.current !== null) {

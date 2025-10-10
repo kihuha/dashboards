@@ -11,10 +11,18 @@ Object.keys(color).map((colorName: string) => {
   MODIFIER_CONFIG[colorName] = () => `
     color: white;
     background: ${color[colorName].main};
+    
+    &:hover {
+      box-shadow: 0 0 0 3px ${color[colorName].light};
+    }
   `
   MODIFIER_CONFIG[`${colorName}Light`] = () => `
     color: ${color[colorName].main};
     background: ${color[colorName].light};
+    
+    &:hover {
+      box-shadow: 0 0 0 3px ${color[colorName].main}40;
+    }
   `
 
   return
@@ -44,6 +52,11 @@ const ButtonWrapper = styled.button<IButton>`
   font-size: ${font.size.h4};
   background: white;
   cursor: pointer;
+  transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 0 3px #e5e7eb;
+  }
 
   ${applyStyleModifiers(MODIFIER_CONFIG)}
 `

@@ -37,7 +37,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 300;
     background: #f8f8f8;
   }
 `

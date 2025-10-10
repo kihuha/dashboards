@@ -6,6 +6,8 @@ const Badge = styled.div`
   border-radius: 0.5rem;
   background: ${(props: any) => `${props.background}`};
   color: ${(props: any) => `${props.color}`};
+  letter-spacing: 1px;
+  font-weight: 400;
 
   &:not(:last-child) {
     margin-right: 1rem;
