@@ -181,7 +181,6 @@ const LandingWrapper = (props: RouteComponentProps) => {
             <ButtonLink href="https://dashboardsdesign.com/" target="_blank">
               Design Kit
             </ButtonLink>
-            <ButtonLinkAlt to="/components">Components</ButtonLinkAlt>
           </ButtonGroup>
         </LandingHeader>
       </Landing>
