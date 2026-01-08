@@ -93,9 +93,9 @@ const MainArea = styled.div`
 `
 
 const Button = styled(ButtonWrapper)`
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.6rem;
   margin-right: 2rem;
 `
 
